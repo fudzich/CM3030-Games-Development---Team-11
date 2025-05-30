@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RangedAttack
   - MeleeAttack
+  - Enemy
   layers:
   - Default
   - TransparentFX

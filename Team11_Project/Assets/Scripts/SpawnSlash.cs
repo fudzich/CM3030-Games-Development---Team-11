@@ -17,7 +17,7 @@ public class SpawnSlash : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1")){
             var newSlash = Instantiate(meleeAttack, transform.position, transform.rotation);
-            newSlash.transform.parent = gameObject.transform;
+            //newSlash.transform.parent = gameObject.transform;
         }
     }
 }
