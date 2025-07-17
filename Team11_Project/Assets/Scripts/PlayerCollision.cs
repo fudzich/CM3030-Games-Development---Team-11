@@ -10,10 +10,13 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     public float recievedMeleeDamage;
 
+    [SerializeField]
+    private HealthBar healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,10 +27,21 @@ public class PlayerCollision : MonoBehaviour
         //}
     }
 
-    private void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.tag == "Enemy"){
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
             hp -= recievedMeleeDamage;
             Debug.Log("I was hit! I have " + hp + " left.");
+
+            if (healthBar != null)
+            {
+                healthBar.takeDamage(recievedMeleeDamage);
+            }
+            else
+            {
+                Debug.LogError("HealthBar is null! Assign it in the Inspector.");
+            }
         }
     }
 }

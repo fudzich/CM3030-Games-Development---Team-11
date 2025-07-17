@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class healthBar : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
     public Slider healthSlider;
     public Slider easeHealthSlider;
@@ -30,7 +30,7 @@ public class healthBar : MonoBehaviour
         }
     }
 
-    void takeDamge(float damage)
+    public void takeDamage(float damage)
     {
         health -= damage;
     }
