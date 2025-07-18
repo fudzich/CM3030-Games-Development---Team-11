@@ -12377,6 +12377,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1537896632124637432, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 642c4aed06a74c24cade386763c7de37, type: 2}
+    - target: {fileID: 1537896632124637432, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1537896632124637432, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1537896632133737810, guid: 55ba76a7468a1d741ac156548c6daa39,
         type: 3}
       propertyPath: m_RootOrder
