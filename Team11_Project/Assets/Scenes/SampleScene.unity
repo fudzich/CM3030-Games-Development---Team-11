@@ -11344,8 +11344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92dff3dd76c178429a61964c095e006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 1951581180}
-  easeHealthSlider: {fileID: 85165194}
+  healthSlider: {fileID: 0}
+  easeHealthSlider: {fileID: 0}
   maxHealth: 100
   health: 0
 --- !u!4 &1868049484 stripped
