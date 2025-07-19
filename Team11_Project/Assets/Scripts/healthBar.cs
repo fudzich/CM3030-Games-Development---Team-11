@@ -35,9 +35,9 @@ public class HealthBar : MonoBehaviour
         health -= damage;
     }
 
-    public void fullHealOnLevelUp(float newMaxHpValue)
+    public void fullHealAndIncreaseOnLevelUp(float newMaxHpValue)
     {
         maxHealth = newMaxHpValue;
-        health = newMaxHpValue;
+        health = maxHealth;
     }
 }

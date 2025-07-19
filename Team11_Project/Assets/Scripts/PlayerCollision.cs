@@ -57,7 +57,7 @@ public class PlayerCollision : MonoBehaviour
 
         if (healthBar != null)
         {
-            healthBar.fullHealOnLevelUp(maxHp);
+            healthBar.fullHealAndIncreaseOnLevelUp(maxHp);
         }
         else
         {
