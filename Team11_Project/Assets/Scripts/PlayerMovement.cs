@@ -21,10 +21,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = Input.mousePosition;
-        Vector3 worldPoint = new Vector3(mousePos.x, mousePos.y, camera.transform.position.y - transform.position.y);
-        Vector3 target = camera.ScreenToWorldPoint(worldPoint);
-        transform.LookAt(target);
+        //Vector2 mousePos = Input.mousePosition;
+        //Vector3 worldPoint = new Vector3(mousePos.x, mousePos.y, camera.transform.position.y - transform.position.y);
+        //Vector3 target = camera.ScreenToWorldPoint(worldPoint);
+        //transform.LookAt(target);
     }
 
     private void FixedUpdate()
