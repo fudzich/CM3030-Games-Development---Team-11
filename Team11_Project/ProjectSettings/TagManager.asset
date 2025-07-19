@@ -7,6 +7,7 @@ TagManager:
   - RangedAttack
   - MeleeAttack
   - Enemy
+  - Spawner
   layers:
   - Default
   - TransparentFX

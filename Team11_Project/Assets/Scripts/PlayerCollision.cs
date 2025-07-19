@@ -15,10 +15,18 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     private HealthBar healthBar;
 
+    private GameObject spawner;
+
     // Start is called before the first frame update
     void Start()
     {
         hp = maxHp;
+
+        spawner = GameObject.FindGameObjectWithTag("Spawner");
+        if (spawner != null)
+        {
+            recievedMeleeDamage += spawner.GetComponent<ImproveEnemies>().getDamage();
+        }
     }
 
     // Update is called once per frame

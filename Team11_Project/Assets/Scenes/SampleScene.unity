@@ -6518,9 +6518,10 @@ GameObject:
   m_Component:
   - component: {fileID: 987650910}
   - component: {fileID: 987650911}
+  - component: {fileID: 987650912}
   m_Layer: 0
   m_Name: Enemy Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6557,6 +6558,21 @@ MonoBehaviour:
   timeToSpawn: 0.5
   minSpawn: {fileID: 1217133206}
   maxSpawn: {fileID: 1545418008}
+--- !u!114 &987650912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987650909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 247db901e3bdfed4da432e8bff90a9a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpImprovementPerFrame: 0.001
+  damageImprovementPerFrame: 0.001
+  speedImprovementPerFrame: 0.001
 --- !u!4 &988104821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 415850, guid: 18c0e8eb46512a548b9ca921ce99df0d,
