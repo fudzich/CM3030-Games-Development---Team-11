@@ -18,7 +18,7 @@ public class PlayerCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hp = MaxHp;
+        hp = maxHp;
     }
 
     // Update is called once per frame

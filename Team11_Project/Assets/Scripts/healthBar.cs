@@ -37,6 +37,7 @@ public class HealthBar : MonoBehaviour
 
     public void fullHealOnLevelUp(float newMaxHpValue)
     {
+        maxHealth = newMaxHpValue;
         health = newMaxHpValue;
     }
 }

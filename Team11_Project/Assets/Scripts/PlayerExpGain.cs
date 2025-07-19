@@ -11,6 +11,11 @@ public class PlayerExpGain : MonoBehaviour
 
     float currentLevel;
 
+    [SerializeField]
+    float speedInreaseValue;
+    [SerializeField]
+    float maxHPInreaseValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,5 +43,9 @@ public class PlayerExpGain : MonoBehaviour
         exp -= nextLevelRequirements;
         currentLevel++;
         Debug.Log("I levelled UP to" + currentLevel + " level!");
+
+        //ststs increase:
+        gameObject.GetComponent<PlayerMovement>().IncreaseSpeed(speedInreaseValue);
+        gameObject.GetComponent<PlayerCollision>().increaseMaxHP(maxHPInreaseValue);
     }
 }
