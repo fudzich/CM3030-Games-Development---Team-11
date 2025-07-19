@@ -18,6 +18,9 @@ public class PlayerExpGain : MonoBehaviour
     [SerializeField]
     private TMPro.TextMeshProUGUI levelText;
 
+    [SerializeField] 
+    private ExpBar expBar; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,7 @@ public class PlayerExpGain : MonoBehaviour
     public void getEXP(float value)
     {
         exp += value;
+        expBar.gainExp(value);
         Debug.Log("I earned " + value + " EXP!");
     }
 
@@ -51,6 +55,7 @@ public class PlayerExpGain : MonoBehaviour
         //ststs increase:
         gameObject.GetComponent<PlayerMovement>().IncreaseSpeed(speedInreaseValue);
         gameObject.GetComponent<PlayerCollision>().increaseMaxHP(maxHPInreaseValue);
+        expBar.updateMaxExp(nextLevelRequirements);
         UpdateLevelUI();
     }
 
