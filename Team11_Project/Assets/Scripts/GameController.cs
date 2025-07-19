@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // Persist across scenes if needed
+            //DontDestroyOnLoad(gameObject);  // Persist across scenes if needed
         }
         else
         {
@@ -65,11 +65,11 @@ public class GameController : MonoBehaviour
         // [TODO: game over logic e.g., show UI, stop enemies, boss stage]
         // Example: Time.timeScale = 0; to pause
 
-        //UIManager _ui = GetComponent<UIManager>();
-        //if (_ui != null)
-        //{
-        //    _ui.ToggleDeathPanel();
-        //}
+        UIManager _ui = GetComponent<UIManager>();
+        if (_ui != null)
+        {
+            _ui.ToggleDeathPanel();
+        }
     }
 
     public bool IsGameOver() => isGameOver;

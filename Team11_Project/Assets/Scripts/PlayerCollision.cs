@@ -60,7 +60,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void PlayerDied()
     {
-        LevelManager.instance.GameOver();
+        GameController.Instance.GameOver();
         gameObject.SetActive(false);
     }
 
