@@ -15,11 +15,15 @@ public class PlayerExpGain : MonoBehaviour
     float speedInreaseValue;
     [SerializeField]
     float maxHPInreaseValue;
+    [SerializeField]
+    private TMPro.TextMeshProUGUI levelText;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentLevel = 0;
+        currentLevel = 1;
+        exp = 0;
+        UpdateLevelUI();
     }
 
     // Update is called once per frame
@@ -47,5 +51,15 @@ public class PlayerExpGain : MonoBehaviour
         //ststs increase:
         gameObject.GetComponent<PlayerMovement>().IncreaseSpeed(speedInreaseValue);
         gameObject.GetComponent<PlayerCollision>().increaseMaxHP(maxHPInreaseValue);
+        UpdateLevelUI();
     }
+
+    private void UpdateLevelUI()
+    {
+        if (levelText != null)
+        {
+            levelText.text = "Lv " + currentLevel;
+        }
+    }
+
 }
