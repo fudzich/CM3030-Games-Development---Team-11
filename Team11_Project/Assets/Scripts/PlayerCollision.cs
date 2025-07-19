@@ -31,6 +31,9 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+
+            //gameObject.GetComponent<PlayerExpGain>().getEXP(s);
+
             hp -= recievedMeleeDamage;
             Debug.Log("I was hit! I have " + hp + " left.");
 

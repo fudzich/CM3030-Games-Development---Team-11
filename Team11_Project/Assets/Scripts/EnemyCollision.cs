@@ -13,14 +13,20 @@ public class EnemyCollision : MonoBehaviour
     [SerializeField]
     public float recievedRangedDamage;
 
+    [SerializeField]
+    public float myEXPvalue;
+
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update(){
         if( hp <= 0){
+            player.GetComponent<PlayerExpGain>().getEXP(myEXPvalue);
             Destroy(gameObject);
         }
     }
