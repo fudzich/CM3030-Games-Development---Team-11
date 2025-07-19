@@ -24,9 +24,9 @@ public class PlayerCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if( hp <= 0){
-        //    Destroy(gameObject);
-        //}
+        if( hp <= 0){
+            PlayerDied();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -48,6 +48,12 @@ public class PlayerCollision : MonoBehaviour
                 Debug.LogError("HealthBar is null! Assign it in the Inspector.");
             }
         }
+    }
+
+    private void PlayerDied()
+    {
+        LevelManager.instance.GameOver();
+        gameObject.SetActive(false);
     }
 
     public void increaseMaxHP(float maxHPInreaseValue)

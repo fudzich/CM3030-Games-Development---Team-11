@@ -57,13 +57,19 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         isGameOver = true;
         Debug.Log("Game Over! Time's up.");
 
         // [TODO: game over logic e.g., show UI, stop enemies, boss stage]
         // Example: Time.timeScale = 0; to pause
+
+        //UIManager _ui = GetComponent<UIManager>();
+        //if (_ui != null)
+        //{
+        //    _ui.ToggleDeathPanel();
+        //}
     }
 
     public bool IsGameOver() => isGameOver;
