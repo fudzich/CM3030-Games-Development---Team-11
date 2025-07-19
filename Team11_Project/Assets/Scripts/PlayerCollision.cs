@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     [SerializeField]
+    float maxHp;
+
     float hp;
 
     [SerializeField]
@@ -16,7 +18,7 @@ public class PlayerCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        hp = MaxHp;
     }
 
     // Update is called once per frame
@@ -45,6 +47,21 @@ public class PlayerCollision : MonoBehaviour
             {
                 Debug.LogError("HealthBar is null! Assign it in the Inspector.");
             }
+        }
+    }
+
+    public void increaseMaxHP(float maxHPInreaseValue)
+    {
+        maxHp += maxHPInreaseValue;
+        hp = maxHp;
+
+        if (healthBar != null)
+        {
+            healthBar.fullHealOnLevelUp(maxHp);
+        }
+        else
+        {
+            Debug.LogError("HealthBar is null! Assign it in the Inspector.");
         }
     }
 }

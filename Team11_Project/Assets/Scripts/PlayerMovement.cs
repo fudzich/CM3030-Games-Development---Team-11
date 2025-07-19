@@ -43,4 +43,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void IncreaseSpeed(float speedInreaseValue)
+    {
+        movementSpeed += speedInreaseValue;
+    }
+
 }
