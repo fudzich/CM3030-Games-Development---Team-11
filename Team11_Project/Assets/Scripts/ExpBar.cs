@@ -8,7 +8,7 @@ public class ExpBar : MonoBehaviour
     public Slider expSlider;
     public float maxExp = 10f;
     public float currentExp;
-    private float lerpSpeed = 0.05f;
+    private float lerpSpeed = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +27,9 @@ public class ExpBar : MonoBehaviour
         }
     }
 
-    public void gainExp(float value)
+    public void updateExp(float value)
     {
-        currentExp += value;
+        currentExp = value;
     }
 
     public void updateMaxExp(float value)

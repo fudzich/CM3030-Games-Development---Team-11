@@ -42,7 +42,7 @@ public class PlayerExpGain : MonoBehaviour
     public void getEXP(float value)
     {
         exp += value;
-        expBar.gainExp(value);
+        expBar.updateExp(exp);
         Debug.Log("I earned " + value + " EXP!");
     }
 
@@ -56,6 +56,7 @@ public class PlayerExpGain : MonoBehaviour
         gameObject.GetComponent<PlayerMovement>().IncreaseSpeed(speedInreaseValue);
         gameObject.GetComponent<PlayerCollision>().increaseMaxHP(maxHPInreaseValue);
         expBar.updateMaxExp(nextLevelRequirements);
+        expBar.updateExp(exp);
         UpdateLevelUI();
     }
 
