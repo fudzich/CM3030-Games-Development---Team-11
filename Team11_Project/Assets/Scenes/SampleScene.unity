@@ -581,6 +581,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6fad05c4d5f2224aaa5c991267146d3, type: 3}
+--- !u!1 &76350414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1554699328970806, guid: eb053838e6978164e89d7ffea7c387d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1500898253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &77227431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6070,6 +6076,21 @@ MonoBehaviour:
   maxHp: 100
   recievedMeleeDamage: 20
   healthBar: {fileID: 1856465420}
+--- !u!114 &882715034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882715025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5892134acd30e164fa59733b7b1332dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDodgeDuration: 100
+  maxDodgeCooldown: 1000
+  playersModel: {fileID: 76350414}
 --- !u!1001 &890325121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10072,6 +10093,10 @@ PrefabInstance:
     - target: {fileID: 1554699328970806, guid: eb053838e6978164e89d7ffea7c387d7, type: 3}
       propertyPath: m_Name
       value: Ninja
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554699328970806, guid: eb053838e6978164e89d7ffea7c387d7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4244320050595224, guid: eb053838e6978164e89d7ffea7c387d7, type: 3}
       propertyPath: m_RootOrder
