@@ -6791,7 +6791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c5049fe2a0cf439a890573e3be3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6611415422308908699, guid: 8539f53f6a641ae4eb9e936c60d1ca6e, type: 3}
+  enemy: {fileID: 3766950735125280766, guid: ce006b15990c96f4ebc70e3bd4929aaa, type: 3}
   timeToSpawn: 0.5
   minSpawn: {fileID: 1217133206}
   maxSpawn: {fileID: 1545418008}
