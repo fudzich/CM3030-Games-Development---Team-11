@@ -21,6 +21,9 @@ public class Dodge : MonoBehaviour
     [SerializeField]
     GameObject playersModel;
 
+    [SerializeField]
+    GameObject shadowForm;
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +73,7 @@ public class Dodge : MonoBehaviour
     private void ToggleModel()
     {
         playersModel.SetActive(!playersModel.activeSelf);
+        shadowForm.SetActive(!shadowForm.activeSelf);
     }
 
     private void CheckCooldown()
