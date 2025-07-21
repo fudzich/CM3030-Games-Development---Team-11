@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
             if (remainingTime <= 0)
             {
                 remainingTime = 0;
-                GameOver();
+                PlayerWin();
             }
         }
     }
@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
-        Debug.Log("Game Over! Time's up.");
+        Debug.Log("Game Over! Player Died.");
 
         // [TODO: game over logic e.g., show UI, stop enemies, boss stage]
         // Example: Time.timeScale = 0; to pause
@@ -69,6 +69,19 @@ public class GameController : MonoBehaviour
         if (_ui != null)
         {
             _ui.ToggleDeathPanel();
+        }
+    }
+
+
+    public void PlayerWin()
+    {
+        isGameOver = true;
+        Debug.Log("Game Over! Player Survived.");
+
+        UIManager _ui = GetComponent<UIManager>();
+        if (_ui != null)
+        {
+            _ui.ToggleWinPanel();
         }
     }
 
