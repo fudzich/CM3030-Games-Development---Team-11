@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dodge : MonoBehaviour
+public class Dodge : MonoBehaviour, ISkill
 {
-
     [SerializeField]
     private float maxDodgeDuration;
 
@@ -24,7 +23,6 @@ public class Dodge : MonoBehaviour
     [SerializeField]
     GameObject shadowForm;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +35,6 @@ public class Dodge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         CheckCooldown();
 
         if (Input.GetKeyDown(KeyCode.Space) && !isinDodge && !isOnCooldown)
@@ -89,8 +86,33 @@ public class Dodge : MonoBehaviour
         }
     }
 
-    public bool IsinDodge()
+    public bool IsInUse()
     {
         return isinDodge;
+    }
+
+    public float GetCurrentDuration()
+    {
+        return currentDodgeDuration;
+    }
+
+    public float GetMaxDuration()
+    {
+        return maxDodgeDuration;
+    }
+
+    public bool IsOnCooldown()
+    {
+        return isOnCooldown;
+    }
+
+    public float GetCurrentCooldown()
+    {
+        return currentDodgeCooldown;
+    }
+
+    public float GetMaxCooldown()
+    {
+        return maxDodgeCooldown;
     }
 }

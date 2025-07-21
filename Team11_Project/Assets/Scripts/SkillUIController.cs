@@ -1,0 +1,46 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SkillUIController : MonoBehaviour
+{
+    [SerializeField]
+    private Image iconFill; 
+
+    [SerializeField]
+    private MonoBehaviour skillComponent; 
+
+    private ISkill skill; 
+
+    void Awake()
+    {
+        if (skillComponent != null && skillComponent is ISkill)
+        {
+            skill = (ISkill)skillComponent;
+        }
+        else
+        {
+            Debug.LogError("SkillUIController: The assigned skillComponent does not implement ISkill!");
+        }
+    }
+
+    void Update()
+    {
+        if (skill == null) return; // Guard clause to prevent errors if skill is not assigned
+
+        if (skill.IsInUse())
+        {
+            iconFill.fillAmount = skill.GetCurrentDuration() / skill.GetMaxDuration();
+        }
+        else if (skill.IsOnCooldown())
+        {
+            float cooldownProgress = 1f - (skill.GetCurrentCooldown() / skill.GetMaxCooldown());
+            iconFill.fillAmount = cooldownProgress;
+        }
+        else
+        {
+            iconFill.fillAmount = 1f;
+        }
+    }
+}

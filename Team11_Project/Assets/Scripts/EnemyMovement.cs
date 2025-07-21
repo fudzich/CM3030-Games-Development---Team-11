@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player != null && !player.GetComponent<Dodge>().IsinDodge())
+        if (player != null && !player.GetComponent<Dodge>().IsInUse())
         {
             // Calculate direction to player
             Vector3 direction = (player.transform.position - transform.position).normalized;
