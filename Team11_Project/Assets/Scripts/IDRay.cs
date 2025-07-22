@@ -19,7 +19,7 @@ public class IDRay : MonoBehaviour
         {
             if (Physics.Raycast(myRay, out RaycastHit hit))
             {
-                Debug.Log(hit.transform.name);
+                // Debug.Log(hit.transform.name);
             }
         }
     }

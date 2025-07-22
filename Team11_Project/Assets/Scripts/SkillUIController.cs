@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class SkillUIController : MonoBehaviour
 {
     [SerializeField]
-    private Image iconFill; 
+    private Image iconFill;
 
     [SerializeField]
-    private MonoBehaviour skillComponent; 
+    private MonoBehaviour skillComponent;
 
-    private ISkill skill; 
+    private ISkill skill;
 
     void Awake()
     {
@@ -21,7 +21,7 @@ public class SkillUIController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("SkillUIController: The assigned skillComponent does not implement ISkill!");
+            // Debug.LogError("SkillUIController: The assigned skillComponent does not implement ISkill!");
         }
     }
 

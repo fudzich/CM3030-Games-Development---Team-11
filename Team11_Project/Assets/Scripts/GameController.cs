@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;  
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    public static GameController Instance;  
+    public static GameController Instance;
 
     [SerializeField] private float gameDuration = 300f;  // 5 minutes in seconds
     private float remainingTime;
@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
-        Debug.Log("Game Over! Player Died.");
+        // // Debug.Log("Game Over! Player Died.");
 
         // [TODO: game over logic e.g., show UI, stop enemies, boss stage]
         // Example: Time.timeScale = 0; to pause
@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour
     public void PlayerWin()
     {
         isGameOver = true;
-        Debug.Log("Game Over! Player Survived.");
+        // // Debug.Log("Game Over! Player Survived.");
 
         UIManager _ui = GetComponent<UIManager>();
         if (_ui != null)

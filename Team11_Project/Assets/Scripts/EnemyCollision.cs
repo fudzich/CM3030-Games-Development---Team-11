@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyCollision : MonoBehaviour
 {
     [SerializeField]
-    float hp;
+    private float hp;
 
     [SerializeField]
     public float recievedMeleeDamage;
@@ -28,25 +28,38 @@ public class EnemyCollision : MonoBehaviour
         if (spawner != null)
         {
             hp += spawner.GetComponent<ImproveEnemies>().getHP();
-            Debug.Log(hp);
+            // Debug.Log(hp);
         }
     }
 
-    void Update(){
-        if( hp <= 0){
+    void Update()
+    {
+        if (hp <= 0)
+        {
             player.GetComponent<PlayerExpGain>().getEXP(myEXPvalue);
             Destroy(gameObject);
         }
     }
+    public void receiveDamge(float damge)
+    {
+        hp -= damge;
+    }
+    public float getCurrentHP()
+    {
+        return hp;
+    }
 
-    private void OnTriggerEnter(Collider other){
-        if (other.gameObject.tag == "RangedAttack"){
-            Debug.Log("Enemy was hit by shuriken!");
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "RangedAttack")
+        {
+            // Debug.Log("Enemy was hit by shuriken!");
             hp -= recievedRangedDamage;
         }
 
-        if (other.gameObject.tag == "MeleeAttack"){
-            Debug.Log("Enemy was hit by slash!");
+        if (other.gameObject.tag == "MeleeAttack")
+        {
+            // Debug.Log("Enemy was hit by slash!");
             hp -= recievedMeleeDamage;
         }
     }
