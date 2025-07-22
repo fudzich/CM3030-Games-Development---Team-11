@@ -32,6 +32,16 @@ public class EnemyCollision : MonoBehaviour
         }
     }
 
+    public void receiveDamge(float damage)
+    {
+        hp -= damage;
+        Debug.Log($"Enemy took {damage} damage. Remaining HP: {hp}");
+    }
+    public float getCurrentHP()
+    {
+        return hp;
+    }
+
     void Update(){
         if( hp <= 0){
             player.GetComponent<PlayerExpGain>().getEXP(myEXPvalue);

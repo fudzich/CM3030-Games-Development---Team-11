@@ -73,10 +73,10 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: -42343418891000214}
   m_Tag: 
-  m_SpeedParameter: moveX
+  m_SpeedParameter: MoveX
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: moveX
+  m_TimeParameter: MoveX
 --- !u!1101 &-1794151702325018079
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -199,8 +199,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: moveX
     m_Mirror: 0
-  m_BlendParameter: moveX
-  m_BlendParameterY: moveX
+  m_BlendParameter: MoveX
+  m_BlendParameterY: MoveX
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
@@ -215,13 +215,13 @@ AnimatorController:
   m_Name: NinjaController
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: moveX
+  - m_Name: MoveX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: moveY
+  - m_Name: MoveY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
