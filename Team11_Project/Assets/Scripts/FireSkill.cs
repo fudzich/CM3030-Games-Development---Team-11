@@ -38,7 +38,7 @@ public class FireSkill : MonoBehaviour, ISkill
                 {
                     fb.SetDirection(spawnRotation * Vector3.forward);
                 }
-            }            // Start cooldown
+            }           
             currentCooldown = maxCooldown;
             isOnCooldown = true;
         }
