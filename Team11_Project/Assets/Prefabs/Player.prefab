@@ -55,10 +55,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3567135539040309715}
   - component: {fileID: 4341425437152296179}
+  - component: {fileID: 882715030}
   - component: {fileID: 6408273262050077954}
   - component: {fileID: 4914940713721604417}
   - component: {fileID: 7816397580191961049}
-  - component: {fileID: 882715030}
   - component: {fileID: 882715031}
   - component: {fileID: 882715032}
   m_Layer: 0
@@ -122,6 +122,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &882715030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858686050255655758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be45dca2889a620449d7e9fc20a3994b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 10
 --- !u!65 &6408273262050077954
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangedAttack: {fileID: 6048633206449612766, guid: a299e362183e06c4a8d32cb777fa6f6e,
     type: 3}
+  maxCooldown: 0
 --- !u!114 &7816397580191961049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,19 +179,6 @@ MonoBehaviour:
   maxDodgeCooldown: 1000
   playersModel: {fileID: 0}
   shadowForm: {fileID: 0}
---- !u!114 &882715030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858686050255655758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be45dca2889a620449d7e9fc20a3994b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 10
 --- !u!54 &882715031
 Rigidbody:
   m_ObjectHideFlags: 0
