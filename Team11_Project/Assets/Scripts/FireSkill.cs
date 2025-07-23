@@ -9,11 +9,15 @@ public class FireSkill : MonoBehaviour, ISkill
     private bool isOnCooldown;
     private float currentCooldown;
     [SerializeField]
-    private float maxCooldown;  
+    private float maxCooldown;
+    private float spreadAngle;
+    private float fireBallAmount;
 
     void Start()
     {
-        currentCooldown = 0f;  
+        fireBallAmount = 3;
+        currentCooldown = 0f;
+        spreadAngle = 15f;
         isOnCooldown = false;
     }
 
@@ -21,15 +25,20 @@ public class FireSkill : MonoBehaviour, ISkill
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && !isOnCooldown)
         {
-            Quaternion spawnRotation = Quaternion.LookRotation(transform.forward);
-            GameObject fireball = Instantiate(rangedAttack, transform.position, spawnRotation);
-            FireBall fb = fireball.GetComponent<FireBall>();
-            if (fb != null)
+            for (int i = 0; i < fireBallAmount; i++)
             {
-                fb.SetDirection(transform.forward);
-            }
+                float angleOffset = (i - (fireBallAmount - 1f) / 2f) * spreadAngle;
 
-            // Start cooldown
+                Quaternion offsetRotation = Quaternion.Euler(0f, angleOffset, 0f);
+                Quaternion spawnRotation = transform.rotation * offsetRotation;
+
+                GameObject fireball = Instantiate(rangedAttack, transform.position, spawnRotation);
+                FireBall fb = fireball.GetComponent<FireBall>();
+                if (fb != null)
+                {
+                    fb.SetDirection(spawnRotation * Vector3.forward);
+                }
+            }            // Start cooldown
             currentCooldown = maxCooldown;
             isOnCooldown = true;
         }

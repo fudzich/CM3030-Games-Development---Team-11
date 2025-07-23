@@ -34,7 +34,6 @@ public class FireBall : MonoBehaviour
                 enemy.receiveDamge(damage);
                 Debug.Log($"Fireball hit {other.name}! Enemy HP: {enemy.getCurrentHP()}");
             }
-            Destroy(gameObject);  // Destroy fireball on hit
         }
     }
 
