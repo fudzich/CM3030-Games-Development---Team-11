@@ -9,7 +9,13 @@ public class SkillUIController : MonoBehaviour
     private Image iconFill; 
 
     [SerializeField]
-    private MonoBehaviour skillComponent; 
+    private MonoBehaviour skillComponent;
+
+    [SerializeField]
+    private Image frameImage;
+
+    [SerializeField]
+    private Color originalFrameColor = new Color(1f, 0.843f, 0f, 1f);  
 
     private ISkill skill; 
 
@@ -27,20 +33,23 @@ public class SkillUIController : MonoBehaviour
 
     void Update()
     {
-        if (skill == null) return; // Guard clause to prevent errors if skill is not assigned
+        if (skill == null) return; 
 
         if (skill.IsInUse())
         {
             iconFill.fillAmount = skill.GetCurrentDuration() / skill.GetMaxDuration();
         }
-        else if (skill.IsOnCooldown())
+        else 
+        if (skill.IsOnCooldown())
         {
             float cooldownProgress = 1f - (skill.GetCurrentCooldown() / skill.GetMaxCooldown());
             iconFill.fillAmount = cooldownProgress;
+            frameImage.color = Color.gray; 
         }
         else
         {
             iconFill.fillAmount = 1f;
+            frameImage.color = originalFrameColor;  
         }
     }
 }
