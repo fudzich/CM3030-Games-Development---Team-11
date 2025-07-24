@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // Persist across scenes if needed
+            // DontDestroyOnLoad(gameObject);  // Persist across scenes if needed
         }
         else
         {
