@@ -4,32 +4,21 @@ using UnityEngine;
 
 public class GuideController : MonoBehaviour
 {
-    [SerializeField] private GameObject movementGuidePanel;
-    [SerializeField] private GameObject rangedGuidePanel; 
-    [SerializeField] private GameObject meleeGuidePanel;
-    [SerializeField] private Vector3 guideOffset = new Vector3(0, 50, 0);  
+    // [SerializeField] private GameObject movementGuidePanel;
+    // [SerializeField] private GameObject rangedGuidePanel; 
+    // [SerializeField] private GameObject meleeGuidePanel;
 
-    private Transform playerTransform; 
-    private PlayerMovement playerMovement;
+    // private Transform playerTransform; 
+    // private PlayerMovement playerMovement;
+
+    // private bool hasMoved = false;
+    // private bool hasShownRangedGuide = false;
+    // private bool hasShownMeleeGuide = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement = FindObjectOfType<PlayerMovement>();
-        if (playerMovement != null)
-        {
-            playerTransform = playerMovement.transform; 
-        }
-        else
-        {
-            Debug.LogError("PlayerMovement not found! Guide positioning and movement checks will fail.");
-        }
-
-        if (movementGuidePanel != null && playerTransform != null)
-        {
-            UpdateGuidePosition(movementGuidePanel);
-            movementGuidePanel.SetActive(true);
-        }
     }
 
     // Update is called once per frame
@@ -37,12 +26,4 @@ public class GuideController : MonoBehaviour
     {
     }
 
-    private void UpdateGuidePosition(GameObject guidePanel)
-    {
-        if (playerTransform != null)
-        {
-            guidePanel.transform.position = playerTransform.position + guideOffset;
-            //guidePanel.transform.rotation = Quaternion.LookRotation(Vector3.down);  
-        }
-    }
 }

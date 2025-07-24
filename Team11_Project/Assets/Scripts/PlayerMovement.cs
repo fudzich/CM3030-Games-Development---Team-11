@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Camera camera;
+    private Camera mainCamera;
 
     Rigidbody rb;
 
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
+        mainCamera = Camera.main;
         rb = GetComponent<Rigidbody>();
     }
 
