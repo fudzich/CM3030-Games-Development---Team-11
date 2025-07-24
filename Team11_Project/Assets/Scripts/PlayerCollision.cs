@@ -32,7 +32,8 @@ public class PlayerCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( hp <= 0){
+        if (hp <= 0)
+        {
             PlayerDied();
         }
     }
@@ -45,7 +46,7 @@ public class PlayerCollision : MonoBehaviour
             //gameObject.GetComponent<PlayerExpGain>().getEXP(s);
 
             hp -= recievedMeleeDamage;
-            Debug.Log("I was hit! I have " + hp + " left.");
+            // Debug.Log("I was hit! I have " + hp + " left.");
 
             if (healthBar != null)
             {
@@ -53,7 +54,7 @@ public class PlayerCollision : MonoBehaviour
             }
             else
             {
-                Debug.LogError("HealthBar is null! Assign it in the Inspector.");
+                // Debug.LogError("HealthBar is null! Assign it in the Inspector.");
             }
         }
     }
@@ -75,7 +76,7 @@ public class PlayerCollision : MonoBehaviour
         }
         else
         {
-            Debug.LogError("HealthBar is null! Assign it in the Inspector.");
+            // Debug.LogError("HealthBar is null! Assign it in the Inspector.");
         }
     }
 }

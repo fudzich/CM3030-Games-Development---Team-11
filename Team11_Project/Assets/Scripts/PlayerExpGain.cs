@@ -18,8 +18,8 @@ public class PlayerExpGain : MonoBehaviour
     [SerializeField]
     private TMPro.TextMeshProUGUI levelText;
 
-    [SerializeField] 
-    private ExpBar expBar; 
+    [SerializeField]
+    private ExpBar expBar;
 
     // Start is called before the first frame update
     void Start()
@@ -43,14 +43,14 @@ public class PlayerExpGain : MonoBehaviour
     {
         exp += value;
         expBar.updateExp(exp);
-        Debug.Log("I earned " + value + " EXP!");
+        // Debug.Log("I earned " + value + " EXP!");
     }
 
     private void levelUp()
     {
         exp -= nextLevelRequirements;
         currentLevel++;
-        Debug.Log("I levelled UP to" + currentLevel + " level!");
+        // Debug.Log("I levelled UP to" + currentLevel + " level!");
 
         //ststs increase:
         gameObject.GetComponent<PlayerMovement>().IncreaseSpeed(speedInreaseValue);

@@ -38,7 +38,7 @@ public class FireSkill : MonoBehaviour, ISkill
                 {
                     fb.SetDirection(spawnRotation * Vector3.forward);
                 }
-            }           
+            }
             currentCooldown = maxCooldown;
             isOnCooldown = true;
         }
@@ -57,7 +57,7 @@ public class FireSkill : MonoBehaviour, ISkill
 
     public bool IsInUse()
     {
-        return false; 
+        return false;
     }
 
     public float GetCurrentDuration()

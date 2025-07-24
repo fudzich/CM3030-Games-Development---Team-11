@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     public GameObject enemy;
-    
+
     [SerializeField]
     public float timeToSpawn;
 
@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform minSpawn, maxSpawn;
 
     private float spawnCounter;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,35 +26,43 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnCounter -= Time.deltaTime;
 
-        if(spawnCounter <= 0){
+        if (spawnCounter <= 0)
+        {
             spawnCounter = timeToSpawn;
-            Instantiate(enemy, SelectSpawnPoint(),transform.rotation);
+            Instantiate(enemy, SelectSpawnPoint(), transform.rotation);
         }
     }
 
-    public Vector3 SelectSpawnPoint(){    
+    public Vector3 SelectSpawnPoint()
+    {
         Vector3 spawnPoint = Vector3.zero;
         spawnPoint.y = 1;
 
         bool spawnVerticalEdge = Random.Range(0f, 1f) > .5f;
 
-        if(spawnVerticalEdge){
+        if (spawnVerticalEdge)
+        {
             spawnPoint.z = Random.Range(minSpawn.position.z, maxSpawn.position.z);
 
-            if(Random.Range(0f, 1f) > .5f){
+            if (Random.Range(0f, 1f) > .5f)
+            {
                 spawnPoint.x = maxSpawn.position.x;
             }
-            else{
+            else
+            {
                 spawnPoint.x = minSpawn.position.x;
             }
         }
-        else{
+        else
+        {
             spawnPoint.x = Random.Range(minSpawn.position.x, maxSpawn.position.x);
 
-            if(Random.Range(0f, 1f) > .5f){
+            if (Random.Range(0f, 1f) > .5f)
+            {
                 spawnPoint.z = maxSpawn.position.z;
             }
-            else{
+            else
+            {
                 spawnPoint.z = minSpawn.position.z;
             }
         }

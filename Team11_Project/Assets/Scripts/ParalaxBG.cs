@@ -7,7 +7,8 @@ public class ParalaxBG : MonoBehaviour
     [SerializeField]
     int moveModifier;
 
-    private void Start(){
+    private void Start()
+    {
         StartPos = transform.position;
     }
 

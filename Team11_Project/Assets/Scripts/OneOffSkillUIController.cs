@@ -27,7 +27,7 @@ public class OneOffSkillUIController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("SkillUIController: The assigned skillComponent does not implement ISkill!");
+            // Debug.LogError("SkillUIController: The assigned skillComponent does not implement ISkill!");
         }
     }
 

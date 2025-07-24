@@ -22,17 +22,17 @@ public class FireBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Debug.Log("enemy colli with fireball");
+        // // Debug.Log("enemy colli with fireball");
 
         if (other.CompareTag("Enemy"))
         {
-            // Debug.Log("enemy colli with fireball enemy");
+            // // Debug.Log("enemy colli with fireball enemy");
             // Apply damage to the enemy
             EnemyCollision enemy = other.GetComponent<EnemyCollision>();
             if (enemy != null)
             {
                 enemy.receiveDamge(damage);
-                Debug.Log($"Fireball hit {other.name}! Enemy HP: {enemy.getCurrentHP()}");
+                // Debug.Log($"Fireball hit {other.name}! Enemy HP: {enemy.getCurrentHP()}");
             }
         }
     }

@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         if (animator == null)
         {
-            Debug.LogWarning("Animator component is missing on Enemy! Add it in the Inspector.");
+            // Debug.LogWarning("Animator component is missing on Enemy! Add it in the Inspector.");
         }
     }
 
@@ -68,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
                 animator.SetFloat("Speed", moveMagnitude > 0.1f ? 1f : 0f); // 1 for moving, 0 for idle
 
                 // Debug logs to check if parameters are setting (view in Console during Play)
-                Debug.Log($"Enemy {name}: MoveX={horizontal}, MoveY={vertical}, Speed={animator.GetFloat("Speed")}");
+                // Debug.Log($"Enemy {name}: MoveX={horizontal}, MoveY={vertical}, Speed={animator.GetFloat("Speed")}");
             }
         }
     }

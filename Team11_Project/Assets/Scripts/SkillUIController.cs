@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SkillUIController : MonoBehaviour
 {
     [SerializeField]
-    private Image iconFill; 
+    private Image iconFill;
 
     [SerializeField]
     private MonoBehaviour skillComponent;
@@ -15,9 +15,9 @@ public class SkillUIController : MonoBehaviour
     private Image frameImage;
 
     [SerializeField]
-    private Color originalFrameColor = new Color(1f, 0.843f, 0f, 1f);  
+    private Color originalFrameColor = new Color(1f, 0.843f, 0f, 1f);
 
-    private ISkill skill; 
+    private ISkill skill;
 
     void Awake()
     {
@@ -27,29 +27,29 @@ public class SkillUIController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("SkillUIController: The assigned skillComponent does not implement ISkill!");
+            // Debug.LogError("SkillUIController: The assigned skillComponent does not implement ISkill!");
         }
     }
 
     void Update()
     {
-        if (skill == null) return; 
+        if (skill == null) return;
 
         if (skill.IsInUse())
         {
             iconFill.fillAmount = skill.GetCurrentDuration() / skill.GetMaxDuration();
         }
-        else 
+        else
         if (skill.IsOnCooldown())
         {
             float cooldownProgress = 1f - (skill.GetCurrentCooldown() / skill.GetMaxCooldown());
             iconFill.fillAmount = cooldownProgress;
-            frameImage.color = Color.gray; 
+            frameImage.color = Color.gray;
         }
         else
         {
             iconFill.fillAmount = 1f;
-            frameImage.color = originalFrameColor;  
+            frameImage.color = originalFrameColor;
         }
     }
 }

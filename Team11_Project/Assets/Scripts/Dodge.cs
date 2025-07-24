@@ -50,14 +50,14 @@ public class Dodge : MonoBehaviour, ISkill
             isinDodge = false;
             currentDodgeDuration = maxDodgeDuration;
             ToggleModel();
-            Debug.Log("My dodge has ended!");
+            // Debug.Log("My dodge has ended!");
 
             isOnCooldown = true;
         }
         else if (isinDodge)
         {
             currentDodgeDuration--;
-            Debug.Log("I am dodging and I have " + currentDodgeDuration + " frames left!");
+            // Debug.Log("I am dodging and I have " + currentDodgeDuration + " frames left!");
         }
     }
 

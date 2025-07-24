@@ -5,14 +5,14 @@ using UnityEngine;
 public class GuideController : MonoBehaviour
 {
     [SerializeField] private GameObject movementGuidePanel;
-    [SerializeField] private GameObject rangedGuidePanel; 
+    [SerializeField] private GameObject rangedGuidePanel;
     [SerializeField] private GameObject meleeGuidePanel;
 
     private bool hasMoved = false;
     private bool hasRightClicked = false;
     private bool hasLeftClicked = false;
 
-    private Transform playerTransform; 
+    private Transform playerTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -24,18 +24,18 @@ public class GuideController : MonoBehaviour
     {
         if (!hasMoved)
         {
-            Debug.Log("checkingmovement");
-            float vertical = Input.GetAxisRaw("Vertical");   
-            float horizontal = Input.GetAxisRaw("Horizontal"); 
+            // Debug.Log("checkingmovement");
+            float vertical = Input.GetAxisRaw("Vertical");
+            float horizontal = Input.GetAxisRaw("Horizontal");
             if (vertical != 0 || horizontal != 0)
             {
-                Debug.Log("checked zero");
+                // Debug.Log("checked zero");
                 hasMoved = true;
                 movementGuidePanel.SetActive(false);
                 rangedGuidePanel.SetActive(true);
             }
         }
-        if (!hasRightClicked && hasMoved && Input.GetButtonDown("Fire2") )
+        if (!hasRightClicked && hasMoved && Input.GetButtonDown("Fire2"))
         {
             hasRightClicked = true;
             rangedGuidePanel.SetActive(false);
