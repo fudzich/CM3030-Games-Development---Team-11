@@ -9,7 +9,7 @@ public class PlayerExpGain : MonoBehaviour
     [SerializeField]
     float nextLevelRequirements;
 
-    float currentLevel;
+    int currentLevel;
 
     [SerializeField]
     float speedInreaseValue;
@@ -57,6 +57,7 @@ public class PlayerExpGain : MonoBehaviour
         gameObject.GetComponent<PlayerCollision>().increaseMaxHP(maxHPInreaseValue);
         expBar.updateMaxExp(nextLevelRequirements);
         expBar.updateExp(exp);
+        gameObject.GetComponent<SkillManager>().learnSkillbyLv(currentLevel);
         UpdateLevelUI();
     }
 

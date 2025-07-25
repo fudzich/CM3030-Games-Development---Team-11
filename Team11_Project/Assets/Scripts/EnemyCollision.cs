@@ -35,7 +35,7 @@ public class EnemyCollision : MonoBehaviour
     public void receiveDamge(float damage)
     {
         hp -= damage;
-        Debug.Log($"Enemy took {damage} damage. Remaining HP: {hp}");
+        // Debug.Log($"Enemy took {damage} damage. Remaining HP: {hp}");
     }
     public float getCurrentHP()
     {

@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 7816397580191961049}
   - component: {fileID: 882715031}
   - component: {fileID: 882715032}
+  - component: {fileID: 8565973908046661724}
   m_Layer: 0
   m_Name: Player
   m_TagString: RangedAttack
@@ -226,3 +227,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangedAttack: {fileID: 879444649456151405, guid: 2e00195f9a2ddbc41b2508f6e1005f1b,
     type: 3}
+--- !u!114 &8565973908046661724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858686050255655758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5ddbc7d391f3f43bc8bb6b0437e4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  learnStealthLv: 1
+  learnFireBallLv: 2
+  learnTornadoLv: 3
