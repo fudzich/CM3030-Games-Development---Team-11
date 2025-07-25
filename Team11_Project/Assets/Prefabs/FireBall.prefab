@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5851496088496727092}
   - component: {fileID: -3824985315490353785}
   - component: {fileID: 3057842451737585843}
-  m_Layer: 0
+  - component: {fileID: -3886986197402519988}
+  m_Layer: 8
   m_Name: FireBall
-  m_TagString: RangedAttack
+  m_TagString: FireBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4788,6 +4789,22 @@ CapsuleCollider:
   m_Height: 2.614
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-3886986197402519988
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048633206449612766}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6049036974747992022
 GameObject:
   m_ObjectHideFlags: 0
@@ -4799,7 +4816,7 @@ GameObject:
   - component: {fileID: 6045712778264787344}
   - component: {fileID: 5852376459355407648}
   - component: {fileID: 5851287290535875980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9553,7 +9570,7 @@ GameObject:
   - component: {fileID: 6045641742055576604}
   - component: {fileID: 5851841820948079508}
   - component: {fileID: 5851501286788261880}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14307,7 +14324,7 @@ GameObject:
   - component: {fileID: 6050739271313848248}
   - component: {fileID: 5851908486889561982}
   - component: {fileID: 5851559986648535936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19061,7 +19078,7 @@ GameObject:
   - component: {fileID: 6050733327603462814}
   - component: {fileID: 5857195541662515230}
   - component: {fileID: 5851055353144384226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

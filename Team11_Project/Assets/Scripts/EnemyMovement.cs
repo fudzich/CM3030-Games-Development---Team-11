@@ -9,8 +9,8 @@ public class EnemyMovement : MonoBehaviour
 
     private GameObject player;
     private GameObject spawner;
-    private Camera mainCamera; // For camera-relative direction
-    private Animator animator; // For animation control
+    private Camera mainCamera;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -34,15 +34,13 @@ public class EnemyMovement : MonoBehaviour
     {
         if (player != null && !player.GetComponent<Dodge>().IsInUse() && !GameController.Instance.IsGameOver())
         {
-            // Calculate direction to player
             Vector3 direction = (player.transform.position - transform.position).normalized;
             float moveMagnitude = direction.magnitude;
 
-            // Rotate to face movement direction (smooth turn)
             if (moveMagnitude > 0.1f)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f); // Adjust speed (5f) for faster/slower turn
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
             }
 
             // Move towards player
@@ -65,7 +63,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 animator.SetFloat("MoveX", horizontal);
                 animator.SetFloat("MoveY", vertical);
-                animator.SetFloat("Speed", moveMagnitude > 0.1f ? 1f : 0f); // 1 for moving, 0 for idle
+                animator.SetFloat("Speed", moveMagnitude > 0.1f ? 1f : 0f);
 
                 // Debug logs to check if parameters are setting (view in Console during Play)
                 // Debug.Log($"Enemy {name}: MoveX={horizontal}, MoveY={vertical}, Speed={animator.GetFloat("Speed")}");
