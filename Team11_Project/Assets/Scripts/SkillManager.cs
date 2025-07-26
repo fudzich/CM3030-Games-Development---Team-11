@@ -5,12 +5,21 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     [SerializeField]
-    private int learnStealthLv = 1;
+    private int learnStealthLv = 2;
     [SerializeField]
-    private int learnFireBallLv = 2;
+    private int learnFireBallLv = 3;
     [SerializeField]
-    private int learnTornadoLv = 3;
+    private int learnTornadoLv = 4;
     private int skillPoints = 0;
+
+    [SerializeField]
+    GameObject StealthUI;
+    [SerializeField]
+    GameObject FireBallUI;
+    [SerializeField]
+    GameObject TornadoUI;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,20 +30,20 @@ public class SkillManager : MonoBehaviour
     {
         if (level == learnStealthLv)
         {
-            // Code to learn Stealth skill
-            Debug.Log("Learned Stealth skill!");
+            gameObject.GetComponent<Dodge>().EnableSkill();
+            StealthUI.SetActive(true);
             return;
         }
         else if (level == learnFireBallLv)
         {
-            // Code to learn Fire Ball skill
-            Debug.Log("Learned Fire Ball skill!");
+            gameObject.GetComponent<FireSkill>().EnableSkill();
+            FireBallUI.SetActive(true);
             return;
         }
         else if (level == learnTornadoLv)
         {
-            // Code to learn Tornado skill
-            Debug.Log("Learned Tornado skill!");
+            gameObject.GetComponent<TornadoSkill>().EnableSkill();
+            TornadoUI.SetActive(true);
             return;
         }
         skillPoints++;

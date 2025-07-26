@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TornadoSkill : MonoBehaviour, ISkill
 {
+    private bool isEnabled = false;
     public GameObject tornadoPrefab;
 
     private bool isOnCooldown;
@@ -31,6 +32,8 @@ public class TornadoSkill : MonoBehaviour, ISkill
 
     void Update()
     {
+        if (!isEnabled) return;
+
         if (Input.GetKeyDown(KeyCode.Alpha2) && !isOnCooldown && !isInUse)
         {
             ActivateTornado();
@@ -84,6 +87,11 @@ public class TornadoSkill : MonoBehaviour, ISkill
             activeTornado = null;
         }
         isInUse = false;
+    }
+
+    public void EnableSkill()
+    {
+        isEnabled = true;
     }
 
     public bool IsInUse()

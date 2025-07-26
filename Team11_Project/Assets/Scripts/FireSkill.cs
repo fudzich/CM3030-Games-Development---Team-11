@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireSkill : MonoBehaviour, ISkill
 {
+    private bool isEnabled = false;
     public GameObject rangedAttack;
 
     private bool isOnCooldown;
@@ -23,6 +24,8 @@ public class FireSkill : MonoBehaviour, ISkill
 
     void Update()
     {
+        if (!isEnabled) return;
+
         if (Input.GetKeyDown(KeyCode.Alpha1) && !isOnCooldown)
         {
             for (int i = 0; i < fireBallAmount; i++)
@@ -54,7 +57,10 @@ public class FireSkill : MonoBehaviour, ISkill
             }
         }
     }
-
+    public void EnableSkill()
+    {
+        isEnabled = true;
+    }
     public bool IsInUse()
     {
         return false;

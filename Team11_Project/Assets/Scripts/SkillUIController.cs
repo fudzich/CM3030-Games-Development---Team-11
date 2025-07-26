@@ -19,17 +19,17 @@ public class SkillUIController : MonoBehaviour
 
     private ISkill skill;
 
-    void Awake()
-    {
-        if (skillComponent != null && skillComponent is ISkill)
-        {
-            skill = (ISkill)skillComponent;
-        }
-        else
-        {
-            // Debug.LogError("SkillUIController: The assigned skillComponent does not implement ISkill!");
-        }
-    }
+    // void Awake()
+    // {
+    //     if (skillComponent != null && skillComponent is ISkill)
+    //     {
+    //         skill = (ISkill)skillComponent;
+    //     }
+    //     else
+    //     {
+    //         // Debug.LogError("SkillUIController: The assigned skillComponent does not implement ISkill!");
+    //     }
+    // }
 
     void Update()
     {

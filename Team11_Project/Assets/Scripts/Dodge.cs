@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dodge : MonoBehaviour, ISkill
 {
+    private bool isEnabled = false;
     [SerializeField]
     private float maxDodgeDuration;
 
@@ -35,6 +36,7 @@ public class Dodge : MonoBehaviour, ISkill
     // Update is called once per frame
     void Update()
     {
+        if (!isEnabled) return;
         CheckCooldown();
 
         if (Input.GetKeyDown(KeyCode.Space) && !isinDodge && !isOnCooldown)
@@ -84,6 +86,11 @@ public class Dodge : MonoBehaviour, ISkill
                 isOnCooldown = false;
             }
         }
+    }
+    public void EnableSkill()
+    {
+        isEnabled = true;
+        // GameObject.GetComponent<SkillUIController>().enabled = true;
     }
 
     public bool IsInUse()
