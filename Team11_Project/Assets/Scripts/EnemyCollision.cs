@@ -46,6 +46,8 @@ public class EnemyCollision : MonoBehaviour
     {
         if (hp <= 0)
         {
+            AudioManager.Instance.Play(AudioManager.AudioType.Enemy_Death);
+
             player.GetComponent<PlayerExpGain>().getEXP(myEXPvalue);
             Destroy(gameObject);
         }

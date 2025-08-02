@@ -19,6 +19,8 @@ public class SpawnSlash : MonoBehaviour
         {
             var newSlash = Instantiate(meleeAttack, transform.position, transform.rotation);
             //newSlash.transform.parent = gameObject.transform;
+
+            AudioManager.Instance.Play(AudioManager.AudioType.Melee_Attack);
         }
     }
 }

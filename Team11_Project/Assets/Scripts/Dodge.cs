@@ -67,6 +67,8 @@ public class Dodge : MonoBehaviour, ISkill
     {
         isinDodge = true;
         ToggleModel();
+
+        AudioManager.Instance.Play(AudioManager.AudioType.Invisibility);
     }
 
     private void ToggleModel()

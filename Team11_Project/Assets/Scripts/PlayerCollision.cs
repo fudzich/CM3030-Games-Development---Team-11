@@ -56,6 +56,8 @@ public class PlayerCollision : MonoBehaviour
             {
                 // Debug.LogError("HealthBar is null! Assign it in the Inspector.");
             }
+
+            AudioManager.Instance.Play(AudioManager.AudioType.Player_Damage);
         }
     }
 

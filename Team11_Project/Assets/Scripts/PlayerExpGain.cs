@@ -59,6 +59,8 @@ public class PlayerExpGain : MonoBehaviour
         expBar.updateExp(exp);
         gameObject.GetComponent<SkillManager>().learnSkillbyLv(currentLevel);
         UpdateLevelUI();
+
+        AudioManager.Instance.Play(AudioManager.AudioType.Levelup);
     }
 
     private void UpdateLevelUI()

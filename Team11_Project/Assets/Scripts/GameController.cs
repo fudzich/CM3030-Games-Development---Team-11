@@ -74,6 +74,8 @@ public class GameController : MonoBehaviour
 
     public void PlayerWin()
     {
+        AudioManager.Instance.Play(AudioManager.AudioType.Win);
+
         isGameOver = true;
         // Debug.Log("Game Over! Player Survived.");
 

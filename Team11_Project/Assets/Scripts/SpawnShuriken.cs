@@ -18,6 +18,7 @@ public class SpawnShuriken : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             Instantiate(rangedAttack, transform.position, transform.rotation);
+            AudioManager.Instance.Play(AudioManager.AudioType.Ranged_Attack);
         }
 
     }

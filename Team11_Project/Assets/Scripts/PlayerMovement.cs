@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
         if (vertical_movement == 0 && horizontal_movement == 0)
         {
             rb.velocity = new Vector3(0, 0, 0);
+
+            //AudioManager.Instance.Play(AudioManager.AudioType.Walk);
         }
     }
 

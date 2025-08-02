@@ -28,6 +28,9 @@ public class FireSkill : MonoBehaviour, ISkill
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && !isOnCooldown)
         {
+            
+            AudioManager.Instance.Play(AudioManager.AudioType.Skill);
+
             for (int i = 0; i < fireBallAmount; i++)
             {
                 float angleOffset = (i - (fireBallAmount - 1f) / 2f) * spreadAngle;
