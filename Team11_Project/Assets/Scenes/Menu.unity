@@ -1000,11 +1000,11 @@ MonoBehaviour:
   AllAudios:
   - Type: 10
     Clip: {fileID: 8300000, guid: 38166d95ac79fd54a8d4f246cb55acd4, type: 3}
-    Volume: 0.4
+    Volume: 0.1
     Source: {fileID: 0}
   - Type: 6
     Clip: {fileID: 8300000, guid: 6fd14d830dcd0db4e90f83aab0974369, type: 3}
-    Volume: 0.4
+    Volume: 0.1
     Source: {fileID: 0}
 --- !u!4 &1930535263
 Transform:

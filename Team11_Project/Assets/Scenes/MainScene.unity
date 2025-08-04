@@ -18885,7 +18885,7 @@ MonoBehaviour:
   AllAudios:
   - Type: 0
     Clip: {fileID: 8300000, guid: 747218739c53c3241ad7784f89cfbe8a, type: 3}
-    Volume: 0.4
+    Volume: 0.1
     Source: {fileID: 0}
   - Type: 1
     Clip: {fileID: 8300000, guid: 1ae1bcc579f5da646831108abc559461, type: 3}
@@ -18917,11 +18917,11 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Type: 8
     Clip: {fileID: 8300000, guid: ede683aa89233c84aa069bf30d5dcd2e, type: 3}
-    Volume: 0.23
+    Volume: 0.1
     Source: {fileID: 0}
   - Type: 9
     Clip: {fileID: 8300000, guid: 1ae1bcc579f5da646831108abc559461, type: 3}
-    Volume: 0.23
+    Volume: 0.2
     Source: {fileID: 0}
   - Type: 11
     Clip: {fileID: 8300000, guid: fc4330d9cae918a41847943577c3c31c, type: 3}
