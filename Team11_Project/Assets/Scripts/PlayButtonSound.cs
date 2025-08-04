@@ -7,7 +7,6 @@ public class PlayButtonSound : MonoBehaviour
     // Start is called before the first frame update
     public void PlayMenuSound()
     {
-        Debug.Log("a");
         AudioManager.Instance.Play(AudioManager.AudioType.Menu_Buttons);
     }
 

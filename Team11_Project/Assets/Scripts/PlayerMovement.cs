@@ -11,11 +11,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float movementSpeed;
 
+    private bool isWalking, noSound;
+
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody>();
+        isWalking = false;
+        noSound = true;
     }
 
     // Update is called once per frame
@@ -41,13 +45,44 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector3(0, 0, 0);
 
-            //AudioManager.Instance.Play(AudioManager.AudioType.Walk);
+            isWalking = false;
+
+            Debug.Log("I stand");
+
+            if (!noSound)
+            {
+                noSound = true;
+                StopWalkSounds();
+            }
         }
+        else
+        {
+            if (noSound)
+            {
+                isWalking = true;
+                noSound = false;
+                PlayWalkSounds();
+            }
+
+            Debug.Log("I walk");
+        }
+
     }
 
     public void IncreaseSpeed(float speedInreaseValue)
     {
         movementSpeed += speedInreaseValue;
+    }
+
+    private void PlayWalkSounds()
+    {
+        AudioManager.Instance.PlayMusic(AudioManager.AudioType.Walk);
+    }
+
+    private void StopWalkSounds()
+    {
+        var walkSounds = GameObject.Find("Music_Walk");
+        AudioManager.Instance.StopMusic(walkSounds);
     }
 
 }
