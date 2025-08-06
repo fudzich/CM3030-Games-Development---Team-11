@@ -3097,6 +3097,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac86ad5d13ce0634a85fbe190a2fc446, type: 3}
+--- !u!1 &324641689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1516371583817312, guid: e7a9aea5e966df148bfeb4235282ae66,
+    type: 3}
+  m_PrefabInstance: {fileID: 2091527032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &324690754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 494252, guid: dc947ac85dde7c3479a4585d73f94058,
@@ -7525,6 +7531,8 @@ MonoBehaviour:
   maxHPInreaseValue: 10
   levelText: {fileID: 607193126}
   expBar: {fileID: 1142851932}
+  levelUpAnimation: {fileID: 1502765245}
+  animationDuration: 1.5
 --- !u!114 &882715032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21274,7 +21282,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1516371583817312, guid: e7a9aea5e966df148bfeb4235282ae66, type: 3}
       propertyPath: m_Name
-      value: Summoring
+      value: Summoning
       objectReference: {fileID: 0}
     - target: {fileID: 1516371583817312, guid: e7a9aea5e966df148bfeb4235282ae66, type: 3}
       propertyPath: m_IsActive
@@ -21917,6 +21925,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6101719509345355985, guid: d2bfb34fdeda8224c9b097cc8f0d83fe,
         type: 3}
+    - target: {fileID: 4928291194990709453, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: summoningComponent
+      value: 
+      objectReference: {fileID: 324641689}
     - target: {fileID: 6408273262050077954, guid: 55ba76a7468a1d741ac156548c6daa39,
         type: 3}
       propertyPath: m_Size.y

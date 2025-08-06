@@ -21,6 +21,9 @@ public class PlayerExpGain : MonoBehaviour
     [SerializeField]
     private ExpBar expBar;
 
+    [SerializeField] private GameObject levelUpAnimation;
+    [SerializeField] private float animationDuration = 1.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +64,7 @@ public class PlayerExpGain : MonoBehaviour
         UpdateLevelUI();
 
         AudioManager.Instance.Play(AudioManager.AudioType.Levelup);
+        StartCoroutine(PlayLevelUpAnimation());
     }
 
     private void UpdateLevelUI()
@@ -69,6 +73,12 @@ public class PlayerExpGain : MonoBehaviour
         {
             levelText.text = "Lv " + currentLevel;
         }
+    }
+    private IEnumerator PlayLevelUpAnimation()
+    {
+        levelUpAnimation.SetActive(true);
+        yield return new WaitForSeconds(animationDuration);
+        levelUpAnimation.SetActive(false);
     }
 
 }
