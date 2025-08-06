@@ -6,8 +6,15 @@ public class FireBall : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float damage = 15f;  // Damage dealt to enemies
+    [SerializeField] private float lifetime = 5f;  // Fireball will be destroyed after 5 seconds
 
     private Vector3 moveDirection;  // Direction set at spawn
+
+    void Start()
+    {
+        // Destroy the fireball after the specified lifetime
+        Destroy(gameObject, lifetime);
+    }
 
     // Called by the spawning script to set direction
     public void SetDirection(Vector3 direction)

@@ -129,7 +129,7 @@ MonoBehaviour:
   hp: 9
   recievedMeleeDamage: 9
   recievedRangedDamage: 3
-  myEXPvalue: 1
+  myEXPvalue: 20
 --- !u!95 &5031532042737769382
 Animator:
   serializedVersion: 3

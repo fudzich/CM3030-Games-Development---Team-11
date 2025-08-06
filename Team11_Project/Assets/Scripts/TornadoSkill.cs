@@ -22,7 +22,7 @@ public class TornadoSkill : MonoBehaviour, ISkill
 
     private PlayerMovement playerMovement;
 
-    [SerializeField] private GameObject summoningComponent;
+    [SerializeField] private GameObject summoningRune;
 
     void Start()
     {
@@ -77,7 +77,7 @@ public class TornadoSkill : MonoBehaviour, ISkill
         isOnCooldown = true;
         currentCooldown = maxCooldown;
 
-        summoningComponent.SetActive(true);
+        summoningRune.SetActive(true);
 
         Vector3 currentSpawnPosition = transform.position + transform.forward * spawnOffset;
         activeTornado = Instantiate(tornadoPrefab, currentSpawnPosition, Quaternion.identity);
@@ -91,7 +91,7 @@ public class TornadoSkill : MonoBehaviour, ISkill
             activeTornado = null;
         }
 
-        summoningComponent.SetActive(false);
+        summoningRune.SetActive(false);
         isInUse = false;
     }
 

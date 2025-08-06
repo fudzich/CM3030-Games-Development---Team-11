@@ -1252,7 +1252,7 @@ GameObject:
   - component: {fileID: 155341956}
   - component: {fileID: 155341955}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21282,7 +21282,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1516371583817312, guid: e7a9aea5e966df148bfeb4235282ae66, type: 3}
       propertyPath: m_Name
-      value: Summoning
+      value: SummoningRune
       objectReference: {fileID: 0}
     - target: {fileID: 1516371583817312, guid: e7a9aea5e966df148bfeb4235282ae66, type: 3}
       propertyPath: m_IsActive
@@ -21916,9 +21916,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4928291194990709453, guid: 55ba76a7468a1d741ac156548c6daa39,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928291194990709453, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: maxCooldown
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928291194990709453, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
       propertyPath: spawnOffset
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4928291194990709453, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: summoningRune
+      value: 
+      objectReference: {fileID: 324641689}
     - target: {fileID: 4928291194990709453, guid: 55ba76a7468a1d741ac156548c6daa39,
         type: 3}
       propertyPath: tornadoPrefab
@@ -21953,7 +21968,12 @@ PrefabInstance:
     - target: {fileID: 7816397580191961049, guid: 55ba76a7468a1d741ac156548c6daa39,
         type: 3}
       propertyPath: maxDodgeCooldown
-      value: 1000
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7816397580191961049, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: maxDodgeDuration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8565973908046661724, guid: 55ba76a7468a1d741ac156548c6daa39,
         type: 3}
