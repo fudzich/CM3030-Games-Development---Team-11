@@ -23973,7 +23973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathPanel: {fileID: 1555549370}
-  winPanel: {fileID: 0}
+  winPanel: {fileID: 1884168357}
 --- !u!114 &879887926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25787,6 +25787,8 @@ MonoBehaviour:
   maxHPInreaseValue: 10
   levelText: {fileID: 1019895087}
   expBar: {fileID: 686709103}
+  levelUpAnimation: {fileID: 0}
+  animationDuration: 1.5
 --- !u!4 &945613766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 455646, guid: f613fa6361aad2d46bcd3644f1a9b0b6,

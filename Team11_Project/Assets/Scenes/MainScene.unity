@@ -19725,7 +19725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathPanel: {fileID: 19492625}
-  winPanel: {fileID: 0}
+  winPanel: {fileID: 179737639}
 --- !u!114 &1926833190
 MonoBehaviour:
   m_ObjectHideFlags: 0
