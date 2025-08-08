@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector3(0, 0, 0);
 
-            //isWalking = false;
+            // isWalking = false;
 
             //Debug.Log("I stand");
 
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (noSound)
             {
-                //isWalking = true;
+                // isWalking = true;
                 noSound = false;
                 PlayWalkSounds();
             }
@@ -69,6 +69,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    // public void getIsWalking()
+    // {
+    //     return isWalking;
+    // }
 
     public void IncreaseSpeed(float speedInreaseValue)
     {
