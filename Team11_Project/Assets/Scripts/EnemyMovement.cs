@@ -23,10 +23,6 @@ public class EnemyMovement : MonoBehaviour
         }
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
-        if (animator == null)
-        {
-            // Debug.LogWarning("Animator component is missing on Enemy! Add it in the Inspector.");
-        }
     }
 
     // Update is called once per frame
@@ -46,28 +42,29 @@ public class EnemyMovement : MonoBehaviour
             // Move towards player
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 
-            // Make direction relative to camera (for fixed camera angle animations)
             Vector3 cameraForward = mainCamera.transform.forward;
             Vector3 cameraRight = mainCamera.transform.right;
-            cameraForward.y = 0f; // Flatten to XZ plane
+            cameraForward.y = 0f;
             cameraRight.y = 0f;
             cameraForward.Normalize();
             cameraRight.Normalize();
 
-            // Project direction onto camera axes for "horizontal" and "vertical" relative to view
             float horizontal = Vector3.Dot(direction, cameraRight);
             float vertical = Vector3.Dot(direction, cameraForward);
 
-            // Set Animator parameters safely (only if animator exists)
             if (animator != null)
             {
-                animator.SetFloat("MoveX", horizontal);
-                animator.SetFloat("MoveY", vertical);
-                animator.SetFloat("Speed", moveMagnitude > 0.1f ? 1f : 0f);
+                float moveX = Input.GetAxisRaw("Horizontal");
+                float moveY = Input.GetAxisRaw("Vertical");
+                float speed = new Vector2(moveX, moveY).magnitude;
 
-                // Debug logs to check if parameters are setting (view in Console during Play)
-                // Debug.Log($"Enemy {name}: MoveX={horizontal}, MoveY={vertical}, Speed={animator.GetFloat("Speed")}");
+                animator.SetFloat("MoveX", moveX);
+                animator.SetFloat("MoveY", moveY);
+                animator.SetFloat("Speed", speed);
             }
         }
     }
 }
+
+
+

@@ -8650,7 +8650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &987650910
 Transform:
   m_ObjectHideFlags: 0
@@ -9205,7 +9205,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: be919fea72f90534cb35edcb2fcc0225, type: 2}
+      objectReference: {fileID: 9100000, guid: c73f1b9fb7e69eb46807cad10ad6f80d, type: 2}
     - target: {fileID: 95842207964945976, guid: 3c9c85e47d53d1f4aaa97330d98c0680,
         type: 3}
       propertyPath: m_CullingMode
