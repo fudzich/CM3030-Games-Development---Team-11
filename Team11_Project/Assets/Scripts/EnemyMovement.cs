@@ -33,11 +33,11 @@ public class EnemyMovement : MonoBehaviour
             Vector3 direction = (player.transform.position - transform.position).normalized;
             float moveMagnitude = direction.magnitude;
 
-            if (moveMagnitude > 0.1f)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-            }
+            // if (moveMagnitude > 0.1f)
+            // {
+            //     Quaternion targetRotation = Quaternion.LookRotation(direction);
+            //     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+            // }
 
             // Move towards player
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
@@ -52,17 +52,15 @@ public class EnemyMovement : MonoBehaviour
             float horizontal = Vector3.Dot(direction, cameraRight);
             float vertical = Vector3.Dot(direction, cameraForward);
 
-            if (animator != null)
-            {
-                float moveX = Input.GetAxisRaw("Horizontal");
-                float moveY = Input.GetAxisRaw("Vertical");
-                float speed = new Vector2(moveX, moveY).magnitude;
-
-                animator.SetFloat("MoveX", moveX);
-                animator.SetFloat("MoveY", moveY);
-                animator.SetFloat("Speed", speed);
-            }
         }
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+        float MGspeed = new Vector2(moveX, moveY).magnitude;
+
+        animator.SetFloat("MoveX", moveX);
+        animator.SetFloat("MoveY", moveY);
+        animator.SetFloat("Speed", MGspeed);
+
     }
 }
 
