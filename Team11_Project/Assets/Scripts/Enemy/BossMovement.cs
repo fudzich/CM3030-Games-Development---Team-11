@@ -16,6 +16,12 @@ public class BossMovement : MonoBehaviour
         {
             agent.updateRotation = false;
             agent.speed = 5f;
+
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(transform.position, out hit, 5f, NavMesh.AllAreas))
+            {
+                transform.position = hit.position;
+            }
         }
 
         GameObject playerObj = GameObject.FindWithTag("Player");
@@ -44,24 +50,6 @@ public class BossMovement : MonoBehaviour
             {
                 animator.SetFloat("MoveX", localVelocity.x);
                 animator.SetFloat("MoveZ", localVelocity.z);
-            }
-        }
-    }
-
-    private System.Collections.IEnumerator CheckNavMeshPlacement()
-    {
-        yield return new WaitForEndOfFrame();
-        if (agent != null && !agent.isOnNavMesh)
-        {
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(transform.position, out hit, 10f, NavMesh.AllAreas))
-            {
-                agent.Warp(hit.position);
-                Debug.Log("Runtime warped to: " + hit.position);
-            }
-            else
-            {
-                Debug.LogError("Still no NavMesh position! Check bake.");
             }
         }
     }
