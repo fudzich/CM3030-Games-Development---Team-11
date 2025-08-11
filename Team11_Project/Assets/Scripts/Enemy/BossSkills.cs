@@ -4,120 +4,44 @@ using System.Collections;
 
 public class BossSkills : MonoBehaviour
 {
-    private Transform player;
-    private NavMeshAgent agent;
     private Animator animator;
-
-    [SerializeField] private float skillCooldown = 5f;
-    [SerializeField] private float skillTriggerProbability = 0.5f;
-    private float lastSkillTime;
-    private bool isUsingSkill;
+    private NavMeshAgent agent;
+    [SerializeField] private GameObject sandParticle;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-
-        GameObject playerObj = GameObject.FindWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.transform;
-        }
-        else
-        {
-            Debug.LogError("Player not found for skills!");
-        }
     }
 
     void Update()
     {
-        if (player != null && agent != null && !isUsingSkill)
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            CheckAndTriggerRandomSkill();
+            StartCoroutine(RollSkill());
         }
     }
 
-    private void CheckAndTriggerRandomSkill()
+
+    private void TriggerRollSkill()
     {
-        if (Time.time - lastSkillTime < skillCooldown) return;
-
-        if (Random.value < skillTriggerProbability)
-        {
-            int randomSkill = Random.Range(0, 2);
-            if (randomSkill == 0)
-            {
-                TriggerRoll();
-            }
-            else
-            {
-                TriggerSpin();
-            }
-        }
+        StartCoroutine(RollSkill());
     }
-
-    public void TriggerRoll()
+    private IEnumerator RollSkill()
     {
-        if (isUsingSkill || Time.time - lastSkillTime < skillCooldown) return;
+        // start the states
+        animator.SetBool("IsRolling", true);
+        agent.isStopped = true;
+        sandParticle.transform.position = transform.position;
+        sandParticle.transform.rotation = transform.rotation * Quaternion.Euler(0f, -90f, 0f);
+        sandParticle.SetActive(true);
 
-        StartCoroutine(RollCoroutine());
-        lastSkillTime = Time.time;
+        // reset the states
+        yield return new WaitForSeconds(0.5f); // [TODO: hardcoding, fix later]
+        animator.SetBool("IsRolling", false);
+        agent.isStopped = false;
+        yield return new WaitForSeconds(0.5f); // [TODO: hardcoding, fix later]
+        sandParticle.SetActive(false);
     }
 
-    private IEnumerator RollCoroutine()
-    {
-        isUsingSkill = true;
-        if (animator != null)
-        {
-            animator.SetBool("IsRolling", true);
-        }
-        if (agent != null)
-        {
-            agent.speed = 10f;
-        }
-
-        yield return new WaitForSeconds(1f);
-
-        if (animator != null)
-        {
-            animator.SetBool("IsRolling", false);
-        }
-        if (agent != null)
-        {
-            agent.speed = 5f;
-        }
-        isUsingSkill = false;
-    }
-
-    public void TriggerSpin()
-    {
-        if (isUsingSkill || Time.time - lastSkillTime < skillCooldown) return;
-
-        StartCoroutine(SpinCoroutine());
-        lastSkillTime = Time.time;
-    }
-
-    private IEnumerator SpinCoroutine()
-    {
-        isUsingSkill = true;
-        if (animator != null)
-        {
-            animator.SetBool("IsSpinning", true);
-        }
-        if (agent != null)
-        {
-            agent.isStopped = true;
-        }
-
-        yield return new WaitForSeconds(1.5f);
-
-        if (animator != null)
-        {
-            animator.SetBool("IsSpinning", false);
-        }
-        if (agent != null)
-        {
-            agent.isStopped = false;
-        }
-        isUsingSkill = false;
-    }
 }
