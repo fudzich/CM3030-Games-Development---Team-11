@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 567827518}
   - component: {fileID: 5204944759651081927}
   - component: {fileID: 3240004941847080877}
+  - component: {fileID: -6330624500569165664}
   m_Layer: 0
   m_Name: Shuriken
   m_TagString: RangedAttack
@@ -116,7 +117,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879444649456151405}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c43a8222e79cbb54e89f71839be72e5b, type: 3}
   m_Name: 
@@ -135,6 +136,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.81647366, y: 8.798681, z: 0.829304}
   m_Center: {x: -0.09176317, y: 0.021439798, z: -0.010058522}
+--- !u!114 &-6330624500569165664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879444649456151405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1eed05e6117f642bf5bb2afd964131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 9
+  lifetime: 1
 --- !u!1001 &2834692618072471000
 PrefabInstance:
   m_ObjectHideFlags: 0

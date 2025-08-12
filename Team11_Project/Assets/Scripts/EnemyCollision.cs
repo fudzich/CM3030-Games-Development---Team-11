@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
 {
-    [SerializeField]
-    float hp;
+    // [SerializeField]
+    // float hp;
 
-    [SerializeField]
-    public float recievedMeleeDamage;
+    // [SerializeField]
+    // public float recievedMeleeDamage;
 
-    [SerializeField]
-    public float recievedRangedDamage;
+    // [SerializeField]
+    // public float recievedRangedDamage;
 
     [SerializeField]
     public float myEXPvalue;
