@@ -5,18 +5,13 @@ using UnityEngine;
 public class PlayerDamageHandler : MonoBehaviour
 {
     private PlayerStatus playerStatus;
-    // Start is called before the first frame update
     void Start()
     {
         playerStatus = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
-
+    // putting collision detection here but not enemy to reduce memory usage
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
