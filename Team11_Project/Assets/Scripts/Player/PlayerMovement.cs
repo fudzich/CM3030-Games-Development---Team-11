@@ -11,44 +11,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float movementSpeed;
 
-    // private bool isWalking, noSound;
     private bool noSound;
 
-    // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody>();
-        // isWalking = false;
         noSound = true;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Vector2 mousePos = Input.mousePosition;
-        //Vector3 worldPoint = new Vector3(mousePos.x, mousePos.y, camera.transform.position.y - transform.position.y);
-        //Vector3 target = camera.ScreenToWorldPoint(worldPoint);
-        //transform.LookAt(target);
-    }
-
     private void FixedUpdate()
     {
         float vertical_movement = Input.GetAxisRaw("Vertical");
         float horizontal_movement = Input.GetAxisRaw("Horizontal");
 
         Vector3 newPos = new Vector3(horizontal_movement, 0, vertical_movement) * movementSpeed * Time.deltaTime;
-        //transform.Translate(new Vector3(horizontal_movement, 0, vertical_movement) * movementSpeed * Time.deltaTime);
 
         rb.MovePosition(transform.position + newPos);
 
         if (vertical_movement == 0 && horizontal_movement == 0)
         {
             rb.velocity = new Vector3(0, 0, 0);
-
-            // isWalking = false;
-
-            //Debug.Log("I stand");
 
             if (!noSound)
             {
@@ -64,16 +46,9 @@ public class PlayerMovement : MonoBehaviour
                 noSound = false;
                 PlayWalkSounds();
             }
-
-            //Debug.Log("I walk");
         }
 
     }
-
-    // public void getIsWalking()
-    // {
-    //     return isWalking;
-    // }
 
     public void IncreaseSpeed(float speedInreaseValue)
     {
