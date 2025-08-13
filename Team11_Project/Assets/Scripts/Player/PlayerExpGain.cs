@@ -57,7 +57,7 @@ public class PlayerExpGain : MonoBehaviour
 
         //ststs increase:
         gameObject.GetComponent<PlayerMovement>().IncreaseSpeed(speedInreaseValue);
-        gameObject.GetComponent<PlayerCollision>().increaseMaxHP(maxHPInreaseValue);
+        gameObject.GetComponent<PlayerStatus>().increaseMaxHP(maxHPInreaseValue);
         expBar.updateMaxExp(nextLevelRequirements);
         expBar.updateExp(exp);
         gameObject.GetComponent<SkillManager>().learnSkillbyLv(currentLevel);
