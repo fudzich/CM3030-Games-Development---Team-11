@@ -68,7 +68,7 @@ public class TornadoDamage : MonoBehaviour
                 if (enemyStatus != null)
                 {
                     enemyStatus.receiveDamage(damagePerSecond * damageInterval);
-                    Debug.Log("Tornado damaged enemy! Applied damage: " + (damagePerSecond * damageInterval));
+                    // Debug.Log("Tornado damaged enemy! Applied damage: " + (damagePerSecond * damageInterval));
                 }
             }
             yield return new WaitForSeconds(damageInterval);

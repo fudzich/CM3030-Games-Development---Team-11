@@ -18,6 +18,7 @@ public class PlayerDamageHandler : MonoBehaviour
         {
             float dmg = collision.gameObject.GetComponent<EnemyStatus>().getDamage();
             playerStatus.receiveDamage(dmg);
+            AudioManager.Instance.Play(AudioManager.AudioType.Player_Damage);
         }
     }
 

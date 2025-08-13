@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
+
     [SerializeField]
     float maxHp;
 
@@ -20,6 +21,10 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if (hp <= 0)
+        // {
+        //     PlayerDied();
+        // }
 
     }
 
@@ -28,7 +33,7 @@ public class PlayerStatus : MonoBehaviour
         hp -= damage;
         healthBar.takeDamage(damage);
         AudioManager.Instance.Play(AudioManager.AudioType.Player_Damage);
-
+        // call checker on action instead of every frame to reduce memory usage
         if (hp <= 0)
         {
             PlayerDied();

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+
+    /* moved to PlayerStatus */
     [SerializeField]
     float maxHp;
 
@@ -14,10 +16,13 @@ public class PlayerCollision : MonoBehaviour
 
     [SerializeField]
     private HealthBar healthBar;
+    /* moved to PlayerStatus */
 
     private GameObject spawner;
 
     // Start is called before the first frame update
+
+    // redo this logic
     void Start()
     {
         hp = maxHp;
@@ -31,6 +36,8 @@ public class PlayerCollision : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    // moved to playestatus, call only once to reduce memory usage
     void Update()
     {
         if (hp <= 0)
@@ -39,6 +46,8 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
+
+    // moved to PlayerDamageHandler
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -61,6 +70,7 @@ public class PlayerCollision : MonoBehaviour
             AudioManager.Instance.Play(AudioManager.AudioType.Player_Damage);
         }
     }
+    // moved to playestatus
 
     private void PlayerDied()
     {
@@ -68,6 +78,7 @@ public class PlayerCollision : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    // moved to playestatus
     public void increaseMaxHP(float maxHPInreaseValue)
     {
         maxHp += maxHPInreaseValue;

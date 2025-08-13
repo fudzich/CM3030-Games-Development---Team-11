@@ -9,7 +9,9 @@ public class EnemyStatus : MonoBehaviour
 
     [SerializeField] private float exp = 1f; // return exp to player when dies
     private GameObject player;
-    private float damage;
+
+    [SerializeField]
+    private float damage = 10;
 
     // Start is called before the first frame update
     void Start()
