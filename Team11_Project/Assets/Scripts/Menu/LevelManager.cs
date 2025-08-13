@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
 
     public void GameOver()
     {
-        UIManager _ui = GetComponent<UIManager>();
+        ModalManager _ui = GetComponent<ModalManager>();
         if (_ui != null)
         {
             _ui.ToggleDeathPanel();

@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class BossMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     private Transform player;
     private NavMeshAgent agent;
     private Animator animator;
+
+    [SerializeField]
+    private float speed = 5f;
 
     void Start()
     {
@@ -15,10 +18,10 @@ public class BossMovement : MonoBehaviour
         if (agent != null)
         {
             agent.updateRotation = false;
-            agent.speed = 5f;
+            agent.speed = speed;
 
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(transform.position, out hit, 5f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(transform.position, out hit, speed, NavMesh.AllAreas))
             {
                 transform.position = hit.position;
             }
@@ -54,11 +57,6 @@ public class BossMovement : MonoBehaviour
                 animator.SetFloat("MoveX", localVelocity.x);
                 animator.SetFloat("MoveZ", localVelocity.z);
             }
-        }
-        else
-        {
-            // Special: Skill condition
-
         }
     }
 }

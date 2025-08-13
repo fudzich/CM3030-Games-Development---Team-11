@@ -35,10 +35,10 @@ public class FireBall : MonoBehaviour
         {
             // // Debug.Log("enemy colli with fireball enemy");
             // Apply damage to the enemy
-            EnemyCollision enemy = other.GetComponent<EnemyCollision>();
+            EnemyStatus enemy = other.GetComponent<EnemyStatus>();
             if (enemy != null)
             {
-                enemy.receiveDamge(damage);
+                enemy.receiveDamage(damage);
                 // Debug.Log($"Fireball hit {other.name}! Enemy HP: {enemy.getCurrentHP()}");
             }
         }

@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
         // [TODO: game over logic e.g., show UI, stop enemies, boss stage]
         // Example: Time.timeScale = 0; to pause
 
-        UIManager _ui = GetComponent<UIManager>();
+        ModalManager _ui = GetComponent<ModalManager>();
         if (_ui != null)
         {
             _ui.ToggleDeathPanel();
@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
         isGameOver = true;
         // Debug.Log("Game Over! Player Survived.");
 
-        UIManager _ui = GetComponent<UIManager>();
+        ModalManager _ui = GetComponent<ModalManager>();
         if (_ui != null)
         {
             _ui.ToggleWinPanel();

@@ -7,8 +7,7 @@ public class EnemyStatus : MonoBehaviour
     [SerializeField]
     private float hp;
 
-    [SerializeField]
-    public float exp { get; private set; }
+    [SerializeField] private float exp = 1f; // return exp to player when dies
     private GameObject player;
     private float damage;
 
@@ -16,15 +15,6 @@ public class EnemyStatus : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (hp <= 0)
-        {
-            Die();
-        }
     }
 
     private void Die()
@@ -36,6 +26,11 @@ public class EnemyStatus : MonoBehaviour
     public void receiveDamage(float damage)
     {
         hp -= damage;
+        if (hp <= 0)
+        {
+            Die();
+        }
+
     }
     public float getCurrentHP()
     {

@@ -10,9 +10,7 @@ public class TornadoDamage : MonoBehaviour
     [SerializeField] private float damageInterval = 0.5f;
     private float damageIncreasePerFireball = 5f;
     private Vector3 scaleIncreasePerFireball = Vector3.one * 0.1f;
-
-
-    private List<EnemyCollision> enemiesInRange = new List<EnemyCollision>();
+    private List<EnemyStatus> enemiesInRange = new List<EnemyStatus>();
 
     void Start()
     {
@@ -23,13 +21,12 @@ public class TornadoDamage : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            EnemyCollision enemy = other.GetComponent<EnemyCollision>();
-            if (enemy != null && !enemiesInRange.Contains(enemy))
+            EnemyStatus enemyStatus = other.GetComponent<EnemyStatus>();
+            if (enemyStatus != null && !enemiesInRange.Contains(enemyStatus))
             {
-                enemiesInRange.Add(enemy);
+                enemiesInRange.Add(enemyStatus);
             }
         }
-
         if (other.CompareTag("FireBall"))
         {
             if (tornadoFirePrefab != null && !tornadoFirePrefab.activeSelf)
@@ -43,6 +40,7 @@ public class TornadoDamage : MonoBehaviour
             }
         }
     }
+
     private void upgradeTornado()
     {
         damagePerSecond += damageIncreasePerFireball;
@@ -53,10 +51,10 @@ public class TornadoDamage : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            EnemyCollision enemy = other.GetComponent<EnemyCollision>();
-            if (enemy != null)
+            EnemyStatus enemyStatus = other.GetComponent<EnemyStatus>();
+            if (enemyStatus != null)
             {
-                enemiesInRange.Remove(enemy);
+                enemiesInRange.Remove(enemyStatus);
             }
         }
     }
@@ -65,11 +63,11 @@ public class TornadoDamage : MonoBehaviour
     {
         while (true)
         {
-            foreach (EnemyCollision enemy in enemiesInRange)
+            foreach (EnemyStatus enemyStatus in enemiesInRange)
             {
-                if (enemy != null)
+                if (enemyStatus != null)
                 {
-                    enemy.receiveDamge(damagePerSecond * damageInterval);
+                    enemyStatus.receiveDamage(damagePerSecond * damageInterval);
                     Debug.Log("Tornado damaged enemy! Applied damage: " + (damagePerSecond * damageInterval));
                 }
             }
