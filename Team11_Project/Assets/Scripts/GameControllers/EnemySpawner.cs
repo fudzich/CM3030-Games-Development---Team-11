@@ -22,27 +22,24 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float level2EndAt = 150f;
     [SerializeField] private float level3EndAt = 99999f;
 
-    private float spawnCounter = 0.5f; // fixed interval
+    private float spawnCounter = 0.5f;
     private bool bossSpawned = false;
 
     void Update()
     {
-        // Stop if game over
         if (GameController.Instance != null && GameController.Instance.IsGameOver())
             return;
 
-        // Boss check
         if (!bossSpawned && ShouldSpawnBoss())
         {
             SpawnBoss();
             if (stopNormalSpawnsWhenBossAppears) return;
         }
 
-        // Normal spawning
         spawnCounter -= Time.deltaTime;
         if (spawnCounter <= 0f)
         {
-            spawnCounter = 0.5f; // fixed interval
+            spawnCounter = 0.5f;
             var prefab = CurrentEnemy();
             if (prefab != null)
             {
