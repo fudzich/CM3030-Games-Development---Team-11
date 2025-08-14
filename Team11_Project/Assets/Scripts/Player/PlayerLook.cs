@@ -27,10 +27,12 @@ public class PlayerLook : MonoBehaviour
         if (Physics.Raycast(mouseRay, out hitInfo, 100f))
         {
             hitPoint = hitInfo.point;
+
         }
 
         Vector3 lookTarget = new Vector3(hitPoint.x, transform.position.y, hitPoint.z);
 
         transform.LookAt(lookTarget);
+
     }
 }

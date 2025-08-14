@@ -34,6 +34,8 @@ public class PlayerAnimationController : MonoBehaviour
                 StartCoroutine(DisableKnifeAfterDelay(0.5f)); //  disable after 0.5 seconds
             }
         }
+
+
     }
 
     private IEnumerator DisableKnifeAfterDelay(float delay)

@@ -12,17 +12,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;  // for UI text display
 
     private bool isGameOver = false;
+    public float GameDuration => gameDuration;
+    public float RemainingTime => remainingTime;
+    public float ElapsedTime => Mathf.Clamp(gameDuration - remainingTime, 0f, gameDuration);
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     void Start()
@@ -59,31 +56,16 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
-        // Debug.Log("Game Over! Player Died.");
-
-        // [TODO: game over logic e.g., show UI, stop enemies, boss stage]
-        // Example: Time.timeScale = 0; to pause
-
-        ModalManager _ui = GetComponent<ModalManager>();
-        if (_ui != null)
-        {
-            _ui.ToggleDeathPanel();
-        }
+        var _ui = GetComponent<ModalManager>();
+        if (_ui != null) _ui.ToggleDeathPanel();
     }
-
 
     public void PlayerWin()
     {
         AudioManager.Instance.Play(AudioManager.AudioType.Win);
-
         isGameOver = true;
-        // Debug.Log("Game Over! Player Survived.");
-
-        ModalManager _ui = GetComponent<ModalManager>();
-        if (_ui != null)
-        {
-            _ui.ToggleWinPanel();
-        }
+        var _ui = GetComponent<ModalManager>();
+        if (_ui != null) _ui.ToggleWinPanel();
     }
 
     public bool IsGameOver() => isGameOver;

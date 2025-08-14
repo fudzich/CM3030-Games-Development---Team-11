@@ -8494,10 +8494,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c5049fe2a0cf439a890573e3be3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6003594300852422858, guid: 2f41884da2ac463408aefb067f34c9cd, type: 3}
-  timeToSpawn: 0.5
   minSpawn: {fileID: 1217133206}
   maxSpawn: {fileID: 1545418008}
+  level1Enemy: {fileID: 6003594300852422858, guid: 2f41884da2ac463408aefb067f34c9cd,
+    type: 3}
+  level2Enemy: {fileID: 6003594300852422858, guid: 18117d127f7ae9841a26ce245e2e0458,
+    type: 3}
+  level3Enemy: {fileID: 6003594300852422858, guid: 11205a4cd04a5f048bfdacc9337fd0fd,
+    type: 3}
+  bossPrefab: {fileID: 6003594300852422858, guid: fd59141b2c6067346b782ab991f6b438,
+    type: 3}
+  bossAtRemainingTime: 20
+  stopNormalSpawnsWhenBossAppears: 1
+  intervalLevel1: 0.5
+  intervalLevel2: 0.5
+  intervalLevel3: 0.5
+  level1EndAt: 60
+  level2EndAt: 150
+  level3EndAt: 240
 --- !u!114 &987650912
 MonoBehaviour:
   m_ObjectHideFlags: 0
