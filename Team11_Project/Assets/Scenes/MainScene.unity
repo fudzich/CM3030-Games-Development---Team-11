@@ -7758,6 +7758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e37c521c07ced04e8d3c2c348b6c58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
   maxHp: 100
   healthBar: {fileID: 1856465420}
 --- !u!114 &882715039
@@ -19640,6 +19641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92dff3dd76c178429a61964c095e006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 882715038}
   healthSlider: {fileID: 1951581180}
   easeHealthSlider: {fileID: 85165194}
   maxHealth: 100

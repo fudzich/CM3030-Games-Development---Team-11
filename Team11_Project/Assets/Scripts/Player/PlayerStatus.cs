@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour
+public class PlayerStatus : Status
 {
-
     [SerializeField]
     float maxHp;
 
-    float hp;
+    // float hp;
     [SerializeField]
     private HealthBar healthBar;
 
@@ -18,20 +17,10 @@ public class PlayerStatus : MonoBehaviour
         hp = maxHp;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // if (hp <= 0)
-        // {
-        //     PlayerDied();
-        // }
-
-    }
-
     public void receiveDamage(float damage)
     {
-        hp -= damage;
-        healthBar.takeDamage(damage);
+        hp = Mathf.Clamp(hp - damage, 0f, maxHp);
+        // healthBar.takeDamage(damage);
         AudioManager.Instance.Play(AudioManager.AudioType.Player_Damage);
         // call checker on action instead of every frame to reduce memory usage
         if (hp <= 0)
@@ -52,5 +41,7 @@ public class PlayerStatus : MonoBehaviour
         hp = maxHp;
         healthBar.fullHealAndIncreaseOnLevelUp(maxHp);
     }
+
+
 
 }

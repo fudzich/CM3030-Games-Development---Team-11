@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStatus : MonoBehaviour
+public class EnemyStatus : Status
 {
-    [SerializeField]
-    private float hp;
 
     [SerializeField] private float exp = 1f; // return exp to player when dies
     private GameObject player;
@@ -33,10 +31,6 @@ public class EnemyStatus : MonoBehaviour
             Die();
         }
 
-    }
-    public float getCurrentHP()
-    {
-        return hp;
     }
     public float getDamage()
     {
