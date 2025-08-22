@@ -12,6 +12,9 @@ public class TornadoDamage : MonoBehaviour
     private Vector3 scaleIncreasePerFireball = Vector3.one * 0.1f;
     private List<EnemyStatus> enemiesInRange = new List<EnemyStatus>();
 
+    private TornadoSkill ownerSkill;
+    public void Init(TornadoSkill owner) => ownerSkill = owner;
+
     void Start()
     {
         StartCoroutine(ApplyDamageRoutine());
@@ -45,6 +48,8 @@ public class TornadoDamage : MonoBehaviour
     {
         damagePerSecond += damageIncreasePerFireball;
         transform.localScale += scaleIncreasePerFireball;
+
+        ownerSkill?.OnFire();
     }
 
     private void OnTriggerExit(Collider other)

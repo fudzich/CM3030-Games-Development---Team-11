@@ -18918,6 +18918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tornadoPrefab: {fileID: 5656327826304489278}
   tornadoFirePrefab: {fileID: 7410398787022698042}
+  fireIcon: {fileID: 0}
   damagePerSecond: 10
   damageInterval: 0.5
 --- !u!1 &7934614892511161144

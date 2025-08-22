@@ -3567,7 +3567,7 @@ RectTransform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 461683692}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4434,6 +4434,7 @@ RectTransform:
   m_Children:
   - {fileID: 397194382}
   - {fileID: 1808934348}
+  - {fileID: 480617184}
   - {fileID: 1705754580}
   - {fileID: 375393068}
   m_Father: {fileID: 1231010339}
@@ -4556,6 +4557,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1245051649}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &480617181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480617184}
+  - component: {fileID: 480617183}
+  - component: {fileID: 480617182}
+  m_Layer: 5
+  m_Name: Icon_fire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &480617182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480617181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 385e57e971829654aaf06ec4c35826c3, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 2
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &480617183
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480617181}
+  m_CullTransparentMesh: 0
+--- !u!224 &480617184
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480617181}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 461683692}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &482526643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 455646, guid: f613fa6361aad2d46bcd3644f1a9b0b6,
@@ -7837,7 +7912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e37c521c07ced04e8d3c2c348b6c58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 100
   maxHp: 100
   healthBar: {fileID: 1856465420}
 --- !u!114 &882715039
@@ -8597,7 +8672,7 @@ MonoBehaviour:
     type: 3}
   bossPrefab: {fileID: 1248874732774416, guid: 3c9c85e47d53d1f4aaa97330d98c0680, type: 3}
   bossAtRemainingTime: 60
-  stopNormalSpawnsWhenBossAppears: 1
+  stopNormalSpawnsWhenBossAppears: 0
   level1EndAt: 60
   level2EndAt: 150
   level3EndAt: 240
@@ -18737,7 +18812,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 461683692}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19430,7 +19505,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 385e57e971829654aaf06ec4c35826c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa1227dd72085ad499d6932e5683bf3a, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19839,10 +19914,6 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Type: 10
     Clip: {fileID: 8300000, guid: ad355794955f4e74fb6543e9df6215e0, type: 3}
-    Volume: 0.1
-    Source: {fileID: 0}
-  - Type: 12
-    Clip: {fileID: 8300000, guid: 6917b23b11020a14481b4502b191c525, type: 3}
     Volume: 0.1
     Source: {fileID: 0}
 --- !u!4 &1880239581
@@ -22472,6 +22543,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 84
       objectReference: {fileID: 0}
+    - target: {fileID: 966766558, guid: 55ba76a7468a1d741ac156548c6daa39, type: 3}
+      propertyPath: m_Name
+      value: MeleeAttackSpawner
+      objectReference: {fileID: 0}
     - target: {fileID: 966766560, guid: 55ba76a7468a1d741ac156548c6daa39, type: 3}
       propertyPath: meleeAttack
       value: 
@@ -22623,6 +22698,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6101719509345355985, guid: d2bfb34fdeda8224c9b097cc8f0d83fe,
         type: 3}
+    - target: {fileID: 4928291194990709453, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: fireTornadoIcon
+      value: 
+      objectReference: {fileID: 480617181}
     - target: {fileID: 4928291194990709453, guid: 55ba76a7468a1d741ac156548c6daa39,
         type: 3}
       propertyPath: summoningComponent

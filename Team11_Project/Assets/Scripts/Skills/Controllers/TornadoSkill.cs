@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TornadoSkill : MonoBehaviour, ISkill
 {
+
     private bool isEnabled = false;
     public GameObject tornadoPrefab;
 
@@ -24,12 +26,19 @@ public class TornadoSkill : MonoBehaviour, ISkill
 
     [SerializeField] private GameObject summoningRune;
 
+    [SerializeField] private GameObject icon;
+    [SerializeField] private Sprite baseSprite;
+    [SerializeField] private Sprite fireSprite;
+
+    private Image iconImage;
+
     void Start()
     {
         currentCooldown = 0f;
         currentDuration = 0f;
         isOnCooldown = false;
         isInUse = false;
+        iconImage = icon.GetComponent<Image>();
     }
 
     void Update()
@@ -81,6 +90,18 @@ public class TornadoSkill : MonoBehaviour, ISkill
 
         Vector3 currentSpawnPosition = transform.position + transform.forward * spawnOffset;
         activeTornado = Instantiate(tornadoPrefab, currentSpawnPosition, Quaternion.identity);
+
+        var tornado = activeTornado.GetComponentsInChildren<TornadoDamage>(true);
+        if (tornado == null || tornado.Length == 0)
+        {
+            Debug.LogError("No TornadoDamage found in tornadoPrefab hierarchy.");
+            return;
+        }
+
+        foreach (var td in tornado)
+            td.Init(this);
+
+
     }
 
     private void CancelTornado()
@@ -92,8 +113,16 @@ public class TornadoSkill : MonoBehaviour, ISkill
         }
 
         summoningRune.SetActive(false);
+        iconImage.sprite = baseSprite;
         isInUse = false;
+
     }
+    public void OnFire()
+    {
+        iconImage.sprite = fireSprite;
+    }
+
+
 
     public void EnableSkill()
     {
