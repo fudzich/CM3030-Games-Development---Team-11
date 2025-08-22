@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 500
-  exp: 100
+  exp: 5
   damage: 10
 --- !u!114 &2931892527237557826
 MonoBehaviour:

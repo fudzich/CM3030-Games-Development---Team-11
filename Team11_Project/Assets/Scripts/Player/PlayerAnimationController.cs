@@ -34,6 +34,10 @@ public class PlayerAnimationController : MonoBehaviour
                 StartCoroutine(DisableKnifeAfterDelay(0.5f)); //  disable after 0.5 seconds
             }
         }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            animator.SetTrigger("Summon");
+        }
 
 
     }
