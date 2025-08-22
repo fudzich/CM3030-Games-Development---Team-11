@@ -17,7 +17,8 @@ public class AudioManager : MonoBehaviour
         Invisibility,
         Skill,
         Background_Music,
-        Background_Sounds
+        Background_Sounds,
+        Background_Boss_Music,
     }
 
     [System.Serializable]

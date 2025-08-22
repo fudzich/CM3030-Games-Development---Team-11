@@ -46,5 +46,9 @@ public class HealthBar : MonoBehaviour
     {
         maxHealth = newMaxHpValue;
         health = maxHealth;
+        healthSlider.maxValue = maxHealth;
+        easeHealthSlider.maxValue = maxHealth;
+        healthSlider.value = health;
+        easeHealthSlider.value = health;
     }
 }

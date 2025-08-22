@@ -57,6 +57,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnBoss()
     {
+        // AudioManger.Instance.Play(AudioManager.AudioType.Background_Boss_Music);
         bossSpawned = true;
         Instantiate(bossPrefab, SelectSpawnPoint(), Quaternion.identity);
     }
