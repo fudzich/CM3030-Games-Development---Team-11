@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlayerExpGain : MonoBehaviour
 {
-    private float exp;
+    [Header("Level Cost (Linear):")] // ΔXP(l) = α + β*(l-1)
+    [SerializeField] private int alpha = 120; // L1→2
+    [SerializeField] private int beta = 60;  // step per level
+    [SerializeField] private int levelCap = 99;
 
-    [SerializeField]
-    float nextLevelRequirements;
-
-    int currentLevel;
-
+    [Header("Growth per Level")]
     [SerializeField]
     float speedInreaseValue;
     [SerializeField]
     float maxHPInreaseValue;
+
+    [Header("UI")]
     [SerializeField]
     private TMPro.TextMeshProUGUI levelText;
 
@@ -24,41 +25,48 @@ public class PlayerExpGain : MonoBehaviour
     [SerializeField] private GameObject levelUpAnimation;
     [SerializeField] private float animationDuration = 1.5f;
 
+    private int exp;
+    int nextLevelRequirement;
+    int currentLevel;
+
     // Start is called before the first frame update
     void Start()
     {
         currentLevel = 1;
         exp = 0;
+        nextLevelRequirement = Mathf.Max(1, NextRequirementForLevel(currentLevel));
+
+        if (expBar) { expBar.updateMaxExp(nextLevelRequirement); expBar.updateExp(exp); }
+
         UpdateLevelUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (exp >= nextLevelRequirements)
+        if (currentLevel < levelCap && exp >= nextLevelRequirement)
         {
             levelUp();
         }
     }
 
-
-    public void getEXP(float value)
+    public void AddEXP(int value)
     {
+        if (value <= 0) return;
         exp += value;
-        expBar.updateExp(exp);
-        // Debug.Log("I earned " + value + " EXP!");
+        if (expBar) expBar.updateExp(exp);
     }
-
     private void levelUp()
     {
-        exp -= nextLevelRequirements;
-        currentLevel++;
-        // Debug.Log("I levelled UP to" + currentLevel + " level!");
+        exp -= nextLevelRequirement;
+        currentLevel = Mathf.Min(levelCap, currentLevel + 1);
 
         //ststs increase:
         gameObject.GetComponent<PlayerMovement>().IncreaseSpeed(speedInreaseValue);
         gameObject.GetComponent<PlayerStatus>().increaseMaxHP(maxHPInreaseValue);
-        expBar.updateMaxExp(nextLevelRequirements);
+        nextLevelRequirement = (currentLevel < levelCap) ? NextRequirementForLevel(currentLevel) : int.MaxValue; // cal next level
+
+        expBar.updateMaxExp(nextLevelRequirement);
         expBar.updateExp(exp);
         gameObject.GetComponent<SkillManager>().learnSkillbyLv(currentLevel);
         UpdateLevelUI();
@@ -80,5 +88,11 @@ public class PlayerExpGain : MonoBehaviour
         yield return new WaitForSeconds(animationDuration);
         levelUpAnimation.SetActive(false);
     }
+
+    private int NextRequirementForLevel(int level)
+    {
+        return alpha + beta * (level - 1);
+    }
+
 
 }

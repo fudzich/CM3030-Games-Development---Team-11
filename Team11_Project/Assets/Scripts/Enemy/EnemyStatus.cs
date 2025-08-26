@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemyStatus : Status
 {
 
-    [SerializeField] private float exp = 1f; // return exp to player when dies
+    [SerializeField] private int exp = 1; // return exp to player when dies
     private GameObject player;
 
     [SerializeField]
-    private float damage = 10;
+    private float damage = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class EnemyStatus : Status
     private void Die()
     {
         AudioManager.Instance.Play(AudioManager.AudioType.Enemy_Death);
-        player.GetComponent<PlayerExpGain>().getEXP(exp); //[TODO, refactor to use a more generic method]
+        player.GetComponent<PlayerExpGain>().AddEXP(exp);
         Destroy(gameObject);
     }
     public void receiveDamage(float damage)
