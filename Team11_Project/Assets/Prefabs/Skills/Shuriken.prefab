@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1eed05e6117f642bf5bb2afd964131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 9
+  damage: 3
   lifetime: 1
 --- !u!1001 &2834692618072471000
 PrefabInstance:
