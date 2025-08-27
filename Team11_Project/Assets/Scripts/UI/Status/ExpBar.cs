@@ -30,10 +30,12 @@ public class ExpBar : MonoBehaviour
     public void updateExp(float value)
     {
         currentExp = value;
+        expSlider.value = currentExp;
     }
 
     public void updateMaxExp(float value)
     {
         maxExp = value;
+        expSlider.maxValue = maxExp;
     }
 }

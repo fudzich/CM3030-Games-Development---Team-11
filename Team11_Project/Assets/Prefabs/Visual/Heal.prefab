@@ -4766,7 +4766,7 @@ GameObject:
   - component: {fileID: 3405726489074729287}
   - component: {fileID: 3405726489074729286}
   m_Layer: 0
-  m_Name: Celestial_light_no_loop
+  m_Name: Heal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33525,7 +33525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3405726489686059198
 Transform:
   m_ObjectHideFlags: 0

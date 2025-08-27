@@ -4414,6 +4414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 461683692}
   - component: {fileID: 461683693}
+  - component: {fileID: 461683694}
   m_Layer: 5
   m_Name: Tornado
   m_TagString: Untagged
@@ -4460,6 +4461,20 @@ MonoBehaviour:
   skillComponent: {fileID: 882715035}
   frameImage: {fileID: 1705754581}
   originalFrameColor: {r: 1, g: 0.843, b: 0, a: 1}
+--- !u!114 &461683694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461683691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb904066da6b3142b22d3ea81c08401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  offsetY: 100
 --- !u!1001 &469882351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5321,6 +5336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 573468075}
   - component: {fileID: 573468076}
+  - component: {fileID: 573468077}
   m_Layer: 5
   m_Name: Stealth
   m_TagString: Untagged
@@ -5367,6 +5383,20 @@ MonoBehaviour:
   skillComponent: {fileID: 882715034}
   frameImage: {fileID: 1990528301}
   originalFrameColor: {r: 1, g: 0.843, b: 0, a: 1}
+--- !u!114 &573468077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573468074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb904066da6b3142b22d3ea81c08401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  offsetY: 120
 --- !u!1001 &583525367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7770,7 +7800,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308fb87f6507b814e84f6f3dac7a5ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelRequirements: 10
+  alpha: 120
+  beta: 60
+  levelCap: 99
   speedInreaseValue: 1
   maxHPInreaseValue: 10
   levelText: {fileID: 607193126}
@@ -8558,7 +8590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &987650910
 Transform:
   m_ObjectHideFlags: 0
@@ -12825,6 +12857,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 868103298}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1543028391
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 882715030}
+    m_Modifications:
+    - target: {fileID: 1223526616464650, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_Name
+      value: Magic fire pro blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731861580502952, guid: c590b17884b119046bc6412066500b7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c590b17884b119046bc6412066500b7d, type: 3}
 --- !u!1 &1545418007
 GameObject:
   m_ObjectHideFlags: 0
@@ -21613,6 +21702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2061033394}
   - component: {fileID: 2061033395}
+  - component: {fileID: 2061033396}
   m_Layer: 5
   m_Name: FireBall
   m_TagString: Untagged
@@ -21659,6 +21749,20 @@ MonoBehaviour:
   skillComponent: {fileID: 882715036}
   frameImage: {fileID: 584345273}
   originalFrameColor: {r: 1, g: 0.843, b: 0, a: 1}
+--- !u!114 &2061033396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061033393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb904066da6b3142b22d3ea81c08401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  offsetY: 100
 --- !u!4 &2061399386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 494518, guid: 5c21d3ac5e1ee174aa93596412fe09bd,
@@ -21955,6 +22059,10 @@ PrefabInstance:
     - target: {fileID: 1516371583817312, guid: e7a9aea5e966df148bfeb4235282ae66, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533018172824294, guid: e7a9aea5e966df148bfeb4235282ae66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4919944421052920, guid: e7a9aea5e966df148bfeb4235282ae66, type: 3}
       propertyPath: m_RootOrder
@@ -22475,6 +22583,10 @@ PrefabInstance:
     - target: {fileID: 966766558, guid: 55ba76a7468a1d741ac156548c6daa39, type: 3}
       propertyPath: m_Name
       value: MeleeAttackSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 966766558, guid: 55ba76a7468a1d741ac156548c6daa39, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 966766560, guid: 55ba76a7468a1d741ac156548c6daa39, type: 3}
       propertyPath: meleeAttack

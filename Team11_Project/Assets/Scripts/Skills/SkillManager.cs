@@ -19,13 +19,6 @@ public class SkillManager : MonoBehaviour
     [SerializeField]
     GameObject TornadoUI;
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
     public void learnSkillbyLv(int level)
     {
         if (level == learnStealthLv)
@@ -47,12 +40,6 @@ public class SkillManager : MonoBehaviour
             return;
         }
         skillPoints++;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
 }

@@ -25,10 +25,6 @@ public class SkillUIController : MonoBehaviour
         {
             skill = (ISkill)skillComponent;
         }
-        else
-        {
-            // Debug.LogError("SkillUIController: The assigned skillComponent does not implement ISkill!");
-        }
     }
 
     void Update()
