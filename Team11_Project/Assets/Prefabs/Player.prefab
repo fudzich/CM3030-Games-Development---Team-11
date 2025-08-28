@@ -140,6 +140,10 @@ MonoBehaviour:
   maxCooldown: 5
   maxDuration: 10
   spawnOffset: 10
+  summoningRune: {fileID: 0}
+  icon: {fileID: 0}
+  baseSprite: {fileID: 0}
+  fireSprite: {fileID: 0}
 --- !u!114 &882715030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,3 +246,6 @@ MonoBehaviour:
   learnStealthLv: 1
   learnFireBallLv: 2
   learnTornadoLv: 3
+  StealthUI: {fileID: 0}
+  FireBallUI: {fileID: 0}
+  TornadoUI: {fileID: 0}
