@@ -10,6 +10,8 @@ public class SkillManager : MonoBehaviour
     private int learnFireBallLv = 3;
     [SerializeField]
     private int learnTornadoLv = 4;
+    [SerializeField]
+    private int learnHealLv = 5;
     private int skillPoints = 0;
 
     [SerializeField]
@@ -18,6 +20,9 @@ public class SkillManager : MonoBehaviour
     GameObject FireBallUI;
     [SerializeField]
     GameObject TornadoUI;
+
+    [SerializeField]
+    GameObject HealUI;
 
     public void learnSkillbyLv(int level)
     {
@@ -39,6 +44,13 @@ public class SkillManager : MonoBehaviour
             TornadoUI.SetActive(true);
             return;
         }
+        else if (level == learnHealLv)
+        {
+            gameObject.GetComponent<Heal>().EnableSkill();
+            HealUI.SetActive(true);
+            return;
+        }
+
         skillPoints++;
     }
 

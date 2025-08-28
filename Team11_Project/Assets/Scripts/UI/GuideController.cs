@@ -10,6 +10,7 @@ public class GuideController : MonoBehaviour
     [SerializeField] private GameObject stealthGuide;
     [SerializeField] private GameObject fireBallGuide;
     [SerializeField] private GameObject tornadoGuide;
+    [SerializeField] private GameObject healGuide;
 
     private bool hasMoved = false;
     private bool hasRightClicked = false;
@@ -17,6 +18,7 @@ public class GuideController : MonoBehaviour
     private bool stealthUsed = false;
     private bool fireBallUsed = false;
     private bool tornadoUsed = false;
+    private bool healUsed = false;
     private Transform playerTransform;
 
     void Update()
@@ -59,6 +61,11 @@ public class GuideController : MonoBehaviour
         {
             tornadoUsed = true;
             tornadoGuide.SetActive(false);
+        }
+        if (!healUsed && Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            healUsed = true;
+            healGuide.SetActive(false);
         }
 
     }

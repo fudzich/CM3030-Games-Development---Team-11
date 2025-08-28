@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
         Background_Music,
         Background_Sounds,
         Background_Boss_Music,
+        Heal,
     }
 
     [System.Serializable]

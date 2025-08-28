@@ -42,6 +42,12 @@ public class PlayerStatus : Status
         healthBar.fullHealAndIncreaseOnLevelUp(maxHp);
     }
 
+    public void heal(float healValue)
+    {
+        hp = Mathf.Clamp(hp + healValue, 0f, maxHp);
+        healthBar.heal(healValue);
+    }
+
 
 
 }

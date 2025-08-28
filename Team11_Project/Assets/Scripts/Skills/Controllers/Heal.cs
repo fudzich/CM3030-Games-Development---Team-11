@@ -1,27 +1,70 @@
-﻿// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-// public class Heal : MonoBehaviour, ISkill
-// {
-//     private bool isEnabled = false;
-//     private bool isOnCooldown;
-//     private float currentCooldown;
+public class Heal : MonoBehaviour, ISkill
+{
+    private bool isEnabled = false;
+    private bool isOnCooldown;
+    private float currentCooldown;
+    private float maxCooldown;
 
-//     private float maxCooldown;
+    [SerializeField] GameObject healAnimation;
 
-//     void Start()
-//     {
-//         isEnabled = true;
-//     }
+    void Update()
+    {
+        if (!isEnabled) return;
+
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !isOnCooldown)
+        {
+            DoHeal();
+        }
+
+        // Handle cooldown timer
+        if (isOnCooldown)
+        {
+            currentCooldown -= Time.deltaTime;
+            if (currentCooldown <= 0f)
+            {
+                currentCooldown = 0f;
+                isOnCooldown = false;
+            }
+        }
+    }
+
+    private void DoHeal()
+    {
+        PlayerStatus playerStatus = GetComponent<PlayerStatus>();
+        if (playerStatus != null)
+        {
+            playerStatus.heal(50f);
+            isOnCooldown = true;
+            currentCooldown = maxCooldown;
+            PlayHeal();
+            AudioManager.Instance.Play(AudioManager.AudioType.Heal);
+
+        }
+    }
+
+    public void PlayHeal()
+    {
+        StartCoroutine(ShowTemporarily(healAnimation, 1f));
+    }
+    IEnumerator ShowTemporarily(GameObject go, float seconds)
+    {
+        go.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        go.SetActive(false);
+    }
 
 
-//     public bool IsInUse() => false;
-//     public void EnableSkill() => isEnabled = true;
-//     public float GetCurrentDuration() => 0f;
-//     public float GetMaxDuration() => 0f;
-//     public bool IsOnCooldown() => isOnCooldown;
-//     public float GetCurrentCooldown() => currentCooldown;
-//     public float GetMaxCooldown() => maxCooldown;
 
-// }
+    public bool IsInUse() => false;
+    public void EnableSkill() => isEnabled = true;
+    public float GetCurrentDuration() => 0f;
+    public float GetMaxDuration() => 0f;
+    public bool IsOnCooldown() => isOnCooldown;
+    public float GetCurrentCooldown() => currentCooldown;
+    public float GetMaxCooldown() => maxCooldown;
+
+}

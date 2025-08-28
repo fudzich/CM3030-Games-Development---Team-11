@@ -51,4 +51,11 @@ public class HealthBar : MonoBehaviour
         healthSlider.value = health;
         easeHealthSlider.value = health;
     }
+
+    public void heal(float healValue)
+    {
+        health = Mathf.Clamp(health + healValue, 0f, maxHealth);
+        healthSlider.value = health;
+        easeHealthSlider.value = health;
+    }
 }
