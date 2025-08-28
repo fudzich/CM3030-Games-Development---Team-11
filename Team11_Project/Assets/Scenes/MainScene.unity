@@ -4988,6 +4988,9 @@ MonoBehaviour:
   movementGuidePanel: {fileID: 678400280}
   rangedGuidePanel: {fileID: 1145598256}
   meleeGuidePanel: {fileID: 233921619}
+  stealthGuide: {fileID: 667614464}
+  fireBallGuide: {fileID: 1633144830}
+  tornadoGuide: {fileID: 375393067}
 --- !u!1001 &516972459
 PrefabInstance:
   m_ObjectHideFlags: 0

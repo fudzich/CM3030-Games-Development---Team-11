@@ -7,19 +7,18 @@ public class GuideController : MonoBehaviour
     [SerializeField] private GameObject movementGuidePanel;
     [SerializeField] private GameObject rangedGuidePanel;
     [SerializeField] private GameObject meleeGuidePanel;
+    [SerializeField] private GameObject stealthGuide;
+    [SerializeField] private GameObject fireBallGuide;
+    [SerializeField] private GameObject tornadoGuide;
 
     private bool hasMoved = false;
     private bool hasRightClicked = false;
     private bool hasLeftClicked = false;
-
+    private bool stealthUsed = false;
+    private bool fireBallUsed = false;
+    private bool tornadoUsed = false;
     private Transform playerTransform;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!hasMoved)
@@ -46,8 +45,21 @@ public class GuideController : MonoBehaviour
             hasLeftClicked = true;
             meleeGuidePanel.SetActive(false);
         }
-
-
+        if (!stealthUsed && Input.GetKeyDown(KeyCode.Space))
+        {
+            stealthUsed = true;
+            stealthGuide.SetActive(false);
+        }
+        if (!fireBallUsed && Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            fireBallUsed = true;
+            fireBallGuide.SetActive(false);
+        }
+        if (!tornadoUsed && Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            tornadoUsed = true;
+            tornadoGuide.SetActive(false);
+        }
 
     }
 
