@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform player;
     private NavMeshAgent agent;
     private Animator animator;
+    private Dodge playerDodge;
 
     [SerializeField]
     private float speed = 5f;
@@ -31,11 +32,18 @@ public class EnemyMovement : MonoBehaviour
         if (playerObj != null)
         {
             player = playerObj.transform;
+            playerDodge = playerObj.GetComponentInChildren<Dodge>();
         }
     }
 
     void Update()
     {
+        // Special: dodge, cannot find player
+        if (playerDodge.IsInUse())
+        {
+            animator.SetTrigger("Idle");
+            return;
+        }
         if (player != null && agent != null && agent.isOnNavMesh && !agent.isStopped)
         {
             // Normal: chasing player
