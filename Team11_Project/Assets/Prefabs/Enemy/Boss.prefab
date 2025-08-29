@@ -567,11 +567,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f12d6ad2c3f2a40bfa4ef3183ef175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sandParticle: {fileID: 6761129660456927975, guid: 397ab717bda56244d912300a689feffb,
+  sandParticlePrefab: {fileID: 6761129660456927975, guid: 397ab717bda56244d912300a689feffb,
     type: 3}
   skillCooldown: 5
   skillTriggerProbability: 0.5
   fireParticle: {fileID: 4189281838826697173}
+  normalRadius: 0.5
+  skillRadius: 1.2
 --- !u!1 &1270200383661414
 GameObject:
   m_ObjectHideFlags: 0
