@@ -7,7 +7,7 @@ public class Heal : MonoBehaviour, ISkill
     private bool isEnabled = false;
     private bool isOnCooldown;
     private float currentCooldown;
-    private float maxCooldown;
+    [SerializeField] private float maxCooldown = 5f;
 
     [SerializeField] GameObject healAnimation;
 

@@ -13,29 +13,44 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Boss")]
     [SerializeField] private GameObject bossPrefab;
-    [Tooltip("Spawn the boss when remaining time is at or below this (seconds).")]
-    [SerializeField] private float bossAtRemainingTime = 20f;
     [SerializeField] private bool stopNormalSpawnsWhenBossAppears = true;
+
+    [Header("Boss Timing")]
+    [Tooltip("When to start boss loop (seconds from game start). Set to 240 for 4 minutes.")]
+    [SerializeField] private float level3EndAt = 240f;
+    [Tooltip("Interval between boss spawns once the boss phase starts.")]
+    [SerializeField] private float bossSpawnInterval = 10f;
 
     [Header("Level Times (seconds from game start)")]
     [SerializeField] private float level1EndAt = 60f;
     [SerializeField] private float level2EndAt = 150f;
-    [SerializeField] private float level3EndAt = 99999f;
+    // level3EndAt is reused as the end of level 3
 
     private float spawnCounter = 0.5f;
-    private bool bossSpawned = false;
+    private bool bossSpawned = false;      // true after first boss (for music + optional stop)
+    private bool bossLoopStarted = false;  // ensures we start the loop once
+
+    void OnDisable()
+    {
+        CancelInvoke(nameof(SpawnBoss));
+    }
 
     void Update()
     {
         if (GameController.Instance != null && GameController.Instance.IsGameOver())
             return;
 
-        if (!bossSpawned && ShouldSpawnBoss())
+        // Start the repeating boss spawns once level 3 has ended (e.g., at 240s)
+        if (!bossLoopStarted && Now() >= level3EndAt)
         {
-            SpawnBoss();
-            if (stopNormalSpawnsWhenBossAppears) return;
+            StartBossLoop();
         }
 
+        // Stop normal enemy spawns after the first boss appears, if desired
+        if (stopNormalSpawnsWhenBossAppears && bossSpawned)
+            return;
+
+        // Normal enemy spawn loop
         spawnCounter -= Time.deltaTime;
         if (spawnCounter <= 0f)
         {
@@ -48,17 +63,25 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private bool ShouldSpawnBoss()
+    private void StartBossLoop()
     {
-        return bossPrefab != null &&
-               GameController.Instance != null &&
-               GameController.Instance.RemainingTime <= bossAtRemainingTime;
+        if (bossPrefab == null) return;
+        bossLoopStarted = true;
+        // Start immediately, then repeat every bossSpawnInterval seconds
+        InvokeRepeating(nameof(SpawnBoss), 0f, bossSpawnInterval);
     }
 
     private void SpawnBoss()
     {
-        AudioManager.Instance.PlayMusic(AudioManager.AudioType.Background_Boss_Music);
-        bossSpawned = true;
+        if (GameController.Instance != null && GameController.Instance.IsGameOver())
+            return;
+
+        if (!bossSpawned)
+        {
+            AudioManager.Instance.PlayMusic(AudioManager.AudioType.Background_Boss_Music);
+            bossSpawned = true;
+        }
+
         Instantiate(bossPrefab, SelectSpawnPoint(), Quaternion.identity);
     }
 
@@ -75,7 +98,7 @@ public class EnemySpawner : MonoBehaviour
         if (t < level1EndAt) return level1Enemy;
         else if (t < level2EndAt) return level2Enemy;
         else if (t < level3EndAt) return level3Enemy;
-        else return level3Enemy;
+        else return level3Enemy; // keep your fallback the same
     }
 
     public Vector3 SelectSpawnPoint()
@@ -88,28 +111,12 @@ public class EnemySpawner : MonoBehaviour
         if (spawnVerticalEdge)
         {
             spawnPoint.z = Random.Range(minSpawn.position.z, maxSpawn.position.z);
-
-            if (Random.Range(0f, 1f) > .5f)
-            {
-                spawnPoint.x = maxSpawn.position.x;
-            }
-            else
-            {
-                spawnPoint.x = minSpawn.position.x;
-            }
+            spawnPoint.x = (Random.Range(0f, 1f) > .5f) ? maxSpawn.position.x : minSpawn.position.x;
         }
         else
         {
             spawnPoint.x = Random.Range(minSpawn.position.x, maxSpawn.position.x);
-
-            if (Random.Range(0f, 1f) > .5f)
-            {
-                spawnPoint.z = maxSpawn.position.z;
-            }
-            else
-            {
-                spawnPoint.z = minSpawn.position.z;
-            }
+            spawnPoint.z = (Random.Range(0f, 1f) > .5f) ? maxSpawn.position.z : minSpawn.position.z;
         }
         return spawnPoint;
     }
