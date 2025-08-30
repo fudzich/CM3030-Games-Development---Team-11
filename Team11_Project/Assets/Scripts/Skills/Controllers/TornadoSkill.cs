@@ -100,6 +100,7 @@ public class TornadoSkill : MonoBehaviour, ISkill
 
         foreach (var td in tornado)
             td.Init(this);
+        AudioManager.Instance.Play(AudioManager.AudioType.Wind);
 
 
     }
