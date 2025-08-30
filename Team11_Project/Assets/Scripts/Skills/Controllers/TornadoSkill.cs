@@ -32,6 +32,8 @@ public class TornadoSkill : MonoBehaviour, ISkill
 
     private Image iconImage;
 
+    PlayerLook playerLook;
+
     void Start()
     {
         currentCooldown = 0f;
@@ -81,6 +83,8 @@ public class TornadoSkill : MonoBehaviour, ISkill
 
     private void ActivateTornado()
     {
+        GetComponent<PlayerLook>().OnFreeze();
+
         isInUse = true;
         currentDuration = maxDuration;
         isOnCooldown = true;
@@ -102,7 +106,6 @@ public class TornadoSkill : MonoBehaviour, ISkill
             td.Init(this);
         AudioManager.Instance.Play(AudioManager.AudioType.Wind);
 
-
     }
 
     private void CancelTornado()
@@ -116,6 +119,7 @@ public class TornadoSkill : MonoBehaviour, ISkill
         summoningRune.SetActive(false);
         iconImage.sprite = baseSprite;
         isInUse = false;
+        GetComponent<PlayerLook>().OnUnfreeze();
 
     }
     public void OnFire()
