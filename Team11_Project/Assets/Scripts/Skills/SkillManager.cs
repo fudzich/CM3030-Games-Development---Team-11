@@ -27,7 +27,7 @@ public class SkillManager : MonoBehaviour
     {
         if (level == learnStealthLv)
         {
-            GetComponent<Dodge>().EnableSkill();
+            GetComponent<Stealth>().EnableSkill();
             StealthUI.SetActive(true);
             stealthLevel = Mathf.Max(stealthLevel, 1); // ensure at least level 1 on unlock
             return;

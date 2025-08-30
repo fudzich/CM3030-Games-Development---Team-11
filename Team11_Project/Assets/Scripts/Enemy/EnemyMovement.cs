@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform player;
     private NavMeshAgent agent;
     private Animator animator;
-    private Dodge playerDodge;
+    private Stealth playerStealth;
 
     [SerializeField]
     private float speed = 5f;
@@ -32,14 +32,14 @@ public class EnemyMovement : MonoBehaviour
         if (playerObj != null)
         {
             player = playerObj.transform;
-            playerDodge = playerObj.GetComponentInChildren<Dodge>();
+            playerStealth = playerObj.GetComponentInChildren<Stealth>();
         }
     }
 
     void Update()
     {
         // Special: dodge, cannot find player
-        if (playerDodge.IsInUse())
+        if (playerStealth.IsInUse())
         {
             animator.SetTrigger("Idle");
             return;

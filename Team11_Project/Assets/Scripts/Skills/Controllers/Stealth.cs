@@ -4,94 +4,124 @@ using UnityEngine;
 
 public class Stealth : MonoBehaviour, ISkill
 {
-    [Header("Settings (seconds)")]
-    [SerializeField] private float maxDodgeDuration = 0.3f;
-    [SerializeField] private float maxDodgeCooldown = 0.8f;
-    [SerializeField] private KeyCode dodgeKey = KeyCode.Space;
+    [Header("Settings (ms)")]
+    [SerializeField] private float maxStealthDuration =300;
+    [SerializeField] private float maxStealthCooldown = 800;
 
     [Header("Visuals")]
-    [SerializeField] private GameObject playersModel;
-    [SerializeField] private GameObject shadowForm;
+    [SerializeField] GameObject playersModel;
+    [SerializeField] GameObject shadowForm;
 
     private bool isEnabled = false;
-    private bool isDodging = false;
-    private bool isOnCooldown = false;
-    private float durTimer = 0f;
-    private float cdTimer = 0f;
+    bool isInStealth;
+    bool isOnCooldown;
+    float currentStealthDuration;
+    float currentStealthCooldown;
 
+    // Start is called before the first frame update
     void Start()
     {
-        // Ensure known starting state
-        SetVisible(true);      // player visible, shadow hidden
-        isDodging = false;
+        currentStealthDuration = maxStealthDuration;
+        currentStealthCooldown = maxStealthCooldown;
+        isInStealth = false;
         isOnCooldown = false;
-        durTimer = 0f;
-        cdTimer = 0f;
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (!isEnabled) return;
+        CheckCooldown();
 
-        // Start dodge
-        if (Input.GetKeyDown(dodgeKey) && !isDodging && !isOnCooldown)
+        if (Input.GetKeyDown(KeyCode.Space) && !isInStealth && !isOnCooldown)
         {
-            isDodging = true;
-            durTimer = maxDodgeDuration; // seconds
-            SetVisible(false);           // hide player, show shadow
-            if (AudioManager.Instance != null)
-                AudioManager.Instance.Play(AudioManager.AudioType.Invisibility);
+            DoAStealth();
         }
+    }
 
-        // Cooldown tick (seconds)
+    private void FixedUpdate()
+    {
+        if (currentStealthDuration <= 0)
+        {
+            isInStealth = false;
+            currentStealthDuration = maxStealthDuration;
+            ToggleModel();
+            // Debug.Log("My stealth has ended!");
+
+            isOnCooldown = true;
+        }
+        else if (isInStealth)
+        {
+            currentStealthDuration--;
+            // Debug.Log("I am dodging and I have " + currentStealthDuration + " frames left!");
+        }
+    }
+
+    private void DoAStealth()
+    {
+        isInStealth = true;
+        ToggleModel();
+        AudioManager.Instance.Play(AudioManager.AudioType.Invisibility);
+
+    }
+
+    private void ToggleModel()
+    {
+        playersModel.SetActive(!playersModel.activeSelf);
+        shadowForm.SetActive(!shadowForm.activeSelf);
+    }
+
+    private void CheckCooldown()
+    {
         if (isOnCooldown)
         {
-            cdTimer -= Time.deltaTime;
-            if (cdTimer <= 0f)
+            currentStealthCooldown--;
+            if (currentStealthCooldown <= 0)
             {
-                cdTimer = 0f;
+                currentStealthCooldown = maxStealthCooldown;
                 isOnCooldown = false;
             }
         }
     }
 
-    void FixedUpdate()
-    {
-        if (!isDodging) return;
-
-        // Dodge duration tick (seconds)
-        durTimer -= Time.fixedDeltaTime;
-        if (durTimer <= 0f)
-        {
-            isDodging = false;
-            SetVisible(true);          // back to normal
-            isOnCooldown = true;
-            cdTimer = maxDodgeCooldown;
-        }
-    }
-
-    private void SetVisible(bool visible)
-    {
-        if (playersModel) playersModel.SetActive(visible);
-        if (shadowForm) shadowForm.SetActive(!visible);
-    }
-
     public void OnStealthLevelChanged()
     {
-        maxDodgeDuration += 0.1f;
-        if (maxDodgeDuration > 1f)
-            maxDodgeDuration = 1f;
-        maxDodgeCooldown -= 0.1f;
-        if (maxDodgeCooldown < 0.4f)
-            maxDodgeCooldown = 0.4f;
+        currentStealthDuration += 100;
+        currentStealthCooldown -= 100;
     }
 
-    // ISkill
-    public void EnableSkill() => isEnabled = true;
-    public bool IsInUse() => isDodging;
-    public float GetCurrentDuration() => Mathf.Max(durTimer, 0f);
-    public float GetMaxDuration() => maxDodgeDuration;
-    public bool IsOnCooldown() => isOnCooldown;
-    public float GetCurrentCooldown() => isOnCooldown ? Mathf.Max(cdTimer, 0f) : 0f;
-    public float GetMaxCooldown() => maxDodgeCooldown;
+    public void EnableSkill()
+    {
+        isEnabled = true;
+    }
+
+    public bool IsInUse()
+    {
+        return isInStealth;
+    }
+
+    public float GetCurrentDuration()
+    {
+        return currentStealthDuration;
+    }
+
+    public float GetMaxDuration()
+    {
+        return maxStealthDuration;
+    }
+
+    public bool IsOnCooldown()
+    {
+        return isOnCooldown;
+    }
+
+    public float GetCurrentCooldown()
+    {
+        return currentStealthCooldown;
+    }
+
+    public float GetMaxCooldown()
+    {
+        return maxStealthCooldown;
+    }
 }

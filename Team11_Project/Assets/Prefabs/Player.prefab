@@ -55,12 +55,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3567135539040309715}
   - component: {fileID: 4341425437152296179}
+  - component: {fileID: 1778884704501985894}
   - component: {fileID: 7632934275235132855}
   - component: {fileID: 4928291194990709453}
   - component: {fileID: 882715030}
   - component: {fileID: 6408273262050077954}
   - component: {fileID: 4914940713721604417}
-  - component: {fileID: 7816397580191961049}
   - component: {fileID: 882715031}
   - component: {fileID: 882715032}
   - component: {fileID: 8565973908046661724}
@@ -125,6 +125,23 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1778884704501985894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858686050255655758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96a59442bd58084db6e20e5f06e1ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDodgeDuration: 0.3
+  maxDodgeCooldown: 0.8
+  dodgeKey: 32
+  playersModel: {fileID: 0}
+  shadowForm: {fileID: 0}
 --- !u!114 &7632934275235132855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d4ce27cb7d79147b9501ec874dbaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxCooldown: 5
+  healAnimation: {fileID: 0}
+  healthAomunt: 50
 --- !u!114 &4928291194990709453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,22 +218,6 @@ MonoBehaviour:
   rangedAttack: {fileID: 6048633206449612766, guid: a299e362183e06c4a8d32cb777fa6f6e,
     type: 3}
   maxCooldown: 0
---- !u!114 &7816397580191961049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858686050255655758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5892134acd30e164fa59733b7b1332dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDodgeDuration: 100
-  maxDodgeCooldown: 1000
-  playersModel: {fileID: 0}
-  shadowForm: {fileID: 0}
 --- !u!54 &882715031
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -259,6 +263,12 @@ MonoBehaviour:
   learnStealthLv: 1
   learnFireBallLv: 2
   learnTornadoLv: 3
+  learnHealLv: 5
   StealthUI: {fileID: 0}
   FireBallUI: {fileID: 0}
   TornadoUI: {fileID: 0}
+  HealUI: {fileID: 0}
+  stealthLevel: 0
+  fireballLevel: 0
+  tornadoLevel: 0
+  healLevel: 0

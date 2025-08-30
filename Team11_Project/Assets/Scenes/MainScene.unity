@@ -6503,7 +6503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconFill: {fileID: 734674389}
-  skillComponent: {fileID: 882715034}
+  skillComponent: {fileID: 882715041}
   frameImage: {fileID: 1990528301}
   originalFrameColor: {r: 1, g: 0.843, b: 0, a: 1}
 --- !u!114 &573468077
@@ -9621,18 +9621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d1ce647163807742aec4f24b0bc5ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &882715034 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7816397580191961049, guid: 55ba76a7468a1d741ac156548c6daa39,
-    type: 3}
-  m_PrefabInstance: {fileID: 3084100620449429706}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882715025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5892134acd30e164fa59733b7b1332dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &882715035 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4928291194990709453, guid: 55ba76a7468a1d741ac156548c6daa39,
@@ -9695,6 +9683,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d4ce27cb7d79147b9501ec874dbaa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &882715041 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1778884704501985894, guid: 55ba76a7468a1d741ac156548c6daa39,
+    type: 3}
+  m_PrefabInstance: {fileID: 3084100620449429706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882715025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96a59442bd58084db6e20e5f06e1ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &883947617
@@ -15788,7 +15788,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: To move
+  m_text: to MOVE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -26922,6 +26922,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778884704501985894, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: shadowForm
+      value: 
+      objectReference: {fileID: 1566559689}
+    - target: {fileID: 1778884704501985894, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: playersModel
+      value: 
+      objectReference: {fileID: 76350414}
+    - target: {fileID: 1778884704501985894, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: maxDodgeCooldown
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778884704501985894, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: maxDodgeDuration
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778884704501985894, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: maxStealthCooldown
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778884704501985894, guid: 55ba76a7468a1d741ac156548c6daa39,
+        type: 3}
+      propertyPath: maxStealthDuration
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3567135539040309715, guid: 55ba76a7468a1d741ac156548c6daa39,
         type: 3}
