@@ -28,7 +28,7 @@ public class FireSkill : MonoBehaviour, ISkill
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && !isOnCooldown)
         {
-            
+
             AudioManager.Instance.Play(AudioManager.AudioType.Skill);
 
             for (int i = 0; i < fireBallAmount; i++)
@@ -60,6 +60,12 @@ public class FireSkill : MonoBehaviour, ISkill
             }
         }
     }
+
+    public void OnFireBallLevelChanged()
+    {
+        fireBallAmount += 1;
+    }
+
     public void EnableSkill()
     {
         isEnabled = true;

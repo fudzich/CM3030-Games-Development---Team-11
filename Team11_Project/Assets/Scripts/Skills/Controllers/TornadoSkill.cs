@@ -17,7 +17,7 @@ public class TornadoSkill : MonoBehaviour, ISkill
     private bool isInUse;
     private float currentDuration;
     [SerializeField]
-    private float maxDuration = 10f;
+    private float maxDuration = 6f;
 
     private GameObject activeTornado;
     [SerializeField] private float spawnOffset = 10f;
@@ -121,6 +121,16 @@ public class TornadoSkill : MonoBehaviour, ISkill
     public void OnFire()
     {
         iconImage.sprite = fireSprite;
+    }
+
+    public void OnFireBallLevelChanged()
+    {
+        maxDuration += 2f;
+        if (maxDuration > 20f)
+            maxDuration = 20f;
+        maxCooldown -= 0.5f;
+        if (maxCooldown < 2f)
+            maxCooldown = 2f;
     }
 
 

@@ -48,4 +48,5 @@ public class SkillUIController : MonoBehaviour
             frameImage.color = originalFrameColor;
         }
     }
+
 }

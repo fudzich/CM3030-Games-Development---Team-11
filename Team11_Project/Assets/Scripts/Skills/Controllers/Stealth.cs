@@ -76,6 +76,16 @@ public class Stealth : MonoBehaviour, ISkill
         if (shadowForm) shadowForm.SetActive(!visible);
     }
 
+    public void OnStealthLevelChanged()
+    {
+        maxDodgeDuration += 0.1f;
+        if (maxDodgeDuration > 1f)
+            maxDodgeDuration = 1f;
+        maxDodgeCooldown -= 0.1f;
+        if (maxDodgeCooldown < 0.4f)
+            maxDodgeCooldown = 0.4f;
+    }
+
     // ISkill
     public void EnableSkill() => isEnabled = true;
     public bool IsInUse() => isDodging;

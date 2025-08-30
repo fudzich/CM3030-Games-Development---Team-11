@@ -11,6 +11,8 @@ public class Heal : MonoBehaviour, ISkill
 
     [SerializeField] GameObject healAnimation;
 
+    [SerializeField] float healthAomunt = 50f;
+
     void Update()
     {
         if (!isEnabled) return;
@@ -37,7 +39,7 @@ public class Heal : MonoBehaviour, ISkill
         PlayerStatus playerStatus = GetComponent<PlayerStatus>();
         if (playerStatus != null)
         {
-            playerStatus.heal(50f);
+            playerStatus.heal(healthAomunt);
             isOnCooldown = true;
             currentCooldown = maxCooldown;
             PlayHeal();
@@ -57,6 +59,15 @@ public class Heal : MonoBehaviour, ISkill
         go.SetActive(false);
     }
 
+    public void OnHealLevelChanged()
+    {
+        maxCooldown -= 0.5f;
+        if (maxCooldown < 2f)
+            maxCooldown = 2f;
+        healthAomunt += 10f;
+        if (healthAomunt > 100f)
+            healthAomunt = 100f;
+    }
 
 
     public bool IsInUse() => false;
