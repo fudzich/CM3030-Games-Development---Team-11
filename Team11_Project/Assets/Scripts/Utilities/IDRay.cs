@@ -15,12 +15,12 @@ public class IDRay : MonoBehaviour
     void Update()
     {
         Ray myRay = cam.ScreenPointToRay(Input.mousePosition);
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (Physics.Raycast(myRay, out RaycastHit hit))
-            {
-                // Debug.Log(hit.transform.name);
-            }
-        }
+        // if (Input.GetButtonDown("Fire1"))
+        // {
+        //     if (Physics.Raycast(myRay, out RaycastHit hit))
+        //     {
+        //         // Debug.Log(hit.transform.name);
+        //     }
+        // }
     }
 }
