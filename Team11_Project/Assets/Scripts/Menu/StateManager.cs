@@ -7,6 +7,7 @@ public class StateManager : MonoBehaviour
 {
     public void ReloadCurrentScene()
     {
+        Debug.Log("1");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
