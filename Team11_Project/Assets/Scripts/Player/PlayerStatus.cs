@@ -31,8 +31,8 @@ public class PlayerStatus : Status
 
     private void PlayerDied()
     {
-        GameController.Instance.GameOver();
         gameObject.SetActive(false);
+        GameController.Instance.GameOver();
     }
 
     public void increaseMaxHP(float maxHPInreaseValue)
