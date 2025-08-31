@@ -127,7 +127,7 @@ public class TornadoSkill : MonoBehaviour, ISkill
         iconImage.sprite = fireSprite;
     }
 
-    public void OnFireBallLevelChanged()
+    public void OnTornadoLevelChanged()
     {
         maxDuration += 2f;
         if (maxDuration > 20f)
