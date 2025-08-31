@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -56,6 +57,10 @@ public class EnemySpawner : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool debugLogs = false;
     [SerializeField] private bool debugGizmos = false;
+
+    [Header("NavMesh")]
+    [SerializeField] private bool requireOnNavMesh = true;
+    [SerializeField] private float navMeshMaxSnapDistance = 2f; 
 
     private float spawnCounter = 0.5f;
     private bool bossSpawned = false;
@@ -187,8 +192,12 @@ public class EnemySpawner : MonoBehaviour
 
             if (!IsInNoSpawnAreaAtPosition(candidate, radius))
             {
-                result = candidate;
-                return true;
+                Vector3 final = candidate;
+                if (!requireOnNavMesh || TrySnapToNavMesh(candidate, out final))
+                {
+                    result = final;   
+                    return true;
+                }
             }
         }
 
@@ -331,6 +340,21 @@ public class EnemySpawner : MonoBehaviour
         _radiusCache[prefab] = r;
         return r;
     }
+
+    // ---------------- nav mesh helper ----------------
+
+    private bool TrySnapToNavMesh(Vector3 pos, out Vector3 snapped)
+    {
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(pos, out hit, navMeshMaxSnapDistance, NavMesh.AllAreas))
+        {
+            snapped = hit.position;
+            return true;
+        }
+        snapped = Vector3.zero;
+        return false;
+    }
+
 
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
