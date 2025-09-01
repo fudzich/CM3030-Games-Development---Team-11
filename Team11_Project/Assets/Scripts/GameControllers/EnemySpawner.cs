@@ -45,6 +45,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float rayStartOffset = 25f;       // start ray this high above highest corner
     [SerializeField] private float raycastDownDistance = 200f; // how far down to look for ground
     [SerializeField] private float spawnYOffset = 0f;          // place pivot this far above ground
+    [SerializeField] private float spawnCounter = 0.5f;
 
     [Header("Footprint")]
     [SerializeField] private float defaultFootprintRadius = 0.7f; // used if prefab has no collider we can read
@@ -60,9 +61,8 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("NavMesh")]
     [SerializeField] private bool requireOnNavMesh = true;
-    [SerializeField] private float navMeshMaxSnapDistance = 2f; 
+    [SerializeField] private float navMeshMaxSnapDistance = 2f;
 
-    private float spawnCounter = 0.5f;
     private bool bossSpawned = false;
     private bool bossLoopStarted = false;
 
@@ -195,7 +195,7 @@ public class EnemySpawner : MonoBehaviour
                 Vector3 final = candidate;
                 if (!requireOnNavMesh || TrySnapToNavMesh(candidate, out final))
                 {
-                    result = final;   
+                    result = final;
                     return true;
                 }
             }

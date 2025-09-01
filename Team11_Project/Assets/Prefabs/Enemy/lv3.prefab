@@ -1010,9 +1010,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abd8555962e03841b0dffcc5486717d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 9
-  exp: 10
-  damage: 5
+  hp: 12
+  exp: 5
+  damage: 11
 --- !u!114 &6004814448266489056
 MonoBehaviour:
   m_ObjectHideFlags: 0

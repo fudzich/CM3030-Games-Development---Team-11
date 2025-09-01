@@ -55,8 +55,12 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void DisableSummonAnimation()
     {
-        animator.ResetTrigger("Summon");
-        animator.CrossFade("Idle", 0.1f, 0);
+        if (animator != null)
+        {
+            animator.ResetTrigger("Summon");
+            animator.CrossFade("Idle", 0.1f, 0);
+
+        }
     }
 
 
