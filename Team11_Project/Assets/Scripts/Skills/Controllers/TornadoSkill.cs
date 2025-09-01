@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TornadoSkill : MonoBehaviour, ISkill
 {
-
     private bool isEnabled = false;
     public GameObject tornadoPrefab;
 
@@ -120,7 +119,7 @@ public class TornadoSkill : MonoBehaviour, ISkill
         iconImage.sprite = baseSprite;
         isInUse = false;
         GetComponent<PlayerLook>().OnUnfreeze();
-
+        GetComponentInChildren<PlayerAnimationController>().DisableSummonAnimation();
     }
     public void OnFire()
     {

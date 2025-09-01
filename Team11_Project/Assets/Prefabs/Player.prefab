@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d11eed749c857948be139f30ef52e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeAttack: {fileID: 7823833870882771397, guid: 68b3d759b7f2d26498632fba4ce31ec3,
+  meleeAttack: {fileID: 5503505460791601945, guid: 74c549d1b06b6b140a1fd9536eea637f,
     type: 3}
 --- !u!1 &858686050255655758
 GameObject:
@@ -54,10 +54,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3567135539040309715}
+  - component: {fileID: 4928291194990709453}
   - component: {fileID: 4341425437152296179}
   - component: {fileID: 1778884704501985894}
   - component: {fileID: 7632934275235132855}
-  - component: {fileID: 4928291194990709453}
   - component: {fileID: 882715030}
   - component: {fileID: 6408273262050077954}
   - component: {fileID: 4914940713721604417}
@@ -86,6 +86,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4928291194990709453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858686050255655758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e343eed7a43dbf4daf8faef726870e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tornadoPrefab: {fileID: 0}
+  maxCooldown: 5
+  maxDuration: 10
+  spawnOffset: 10
+  summoningRune: {fileID: 0}
+  icon: {fileID: 0}
+  baseSprite: {fileID: 0}
+  fireSprite: {fileID: 0}
 --- !u!23 &4341425437152296179
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -137,9 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96a59442bd58084db6e20e5f06e1ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDodgeDuration: 0.3
-  maxDodgeCooldown: 0.8
-  dodgeKey: 32
+  maxStealthDuration: 300
+  maxStealthCooldown: 800
   playersModel: {fileID: 0}
   shadowForm: {fileID: 0}
 --- !u!114 &7632934275235132855
@@ -157,26 +176,6 @@ MonoBehaviour:
   maxCooldown: 5
   healAnimation: {fileID: 0}
   healthAomunt: 50
---- !u!114 &4928291194990709453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858686050255655758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e343eed7a43dbf4daf8faef726870e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tornadoPrefab: {fileID: 0}
-  maxCooldown: 5
-  maxDuration: 10
-  spawnOffset: 10
-  summoningRune: {fileID: 0}
-  icon: {fileID: 0}
-  baseSprite: {fileID: 0}
-  fireSprite: {fileID: 0}
 --- !u!114 &882715030
 MonoBehaviour:
   m_ObjectHideFlags: 0

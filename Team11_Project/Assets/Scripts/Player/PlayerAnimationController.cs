@@ -4,19 +4,26 @@ using System.Collections;
 public class PlayerAnimationController : MonoBehaviour
 {
     private Animator animator;
+
+    [Header("Weapon")]
     public GameObject knife;
+
+    [Header("Skills")]
+    [SerializeField] private TornadoSkill tornadoSkill;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        if (knife != null)
-        {
-            knife.SetActive(false);
-        }
+
+        if (tornadoSkill == null)
+            tornadoSkill = GetComponent<TornadoSkill>(); // fallback
+
+        if (knife != null) knife.SetActive(false);
     }
 
     void Update()
     {
+        // movement/attack 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         float speed = new Vector2(moveX, moveY).magnitude;
@@ -31,23 +38,31 @@ public class PlayerAnimationController : MonoBehaviour
             if (knife != null && Input.GetButtonDown("Fire1"))
             {
                 knife.SetActive(true);
-                StartCoroutine(DisableKnifeAfterDelay(0.5f)); //  disable after 0.5 seconds
+                StartCoroutine(DisableKnifeAfterDelay(0.5f));
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+
+        // TornadoSkill summoning
+        if (tornadoSkill != null)
         {
-            animator.SetTrigger("Summon");
+            bool inUse = tornadoSkill.IsInUse();
+            if (inUse)
+            {
+                animator.SetTrigger("Summon");
+            }
         }
-
-
     }
+
+    public void DisableSummonAnimation()
+    {
+        animator.ResetTrigger("Summon");
+        animator.CrossFade("Idle", 0.1f, 0);
+    }
+
 
     private IEnumerator DisableKnifeAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        if (knife != null && knife.activeSelf)
-        {
-            knife.SetActive(false);
-        }
+        if (knife != null && knife.activeSelf) knife.SetActive(false);
     }
 }
