@@ -32,6 +32,8 @@ public class TornadoSkill : MonoBehaviour, ISkill
     private Image iconImage;
 
     PlayerLook playerLook;
+    private PlayerAnimationController animController;
+
 
     void Start()
     {
@@ -40,6 +42,8 @@ public class TornadoSkill : MonoBehaviour, ISkill
         isOnCooldown = false;
         isInUse = false;
         iconImage = icon.GetComponent<Image>();
+        animController = GetComponentInChildren<PlayerAnimationController>();
+
     }
 
     void Update()
@@ -119,7 +123,10 @@ public class TornadoSkill : MonoBehaviour, ISkill
         iconImage.sprite = baseSprite;
         isInUse = false;
         GetComponent<PlayerLook>().OnUnfreeze();
-        GetComponentInChildren<PlayerAnimationController>().DisableSummonAnimation();
+        if (animController != null)
+        {
+            animController.DisableSummonAnimation();
+        }
     }
     public void OnFire()
     {
