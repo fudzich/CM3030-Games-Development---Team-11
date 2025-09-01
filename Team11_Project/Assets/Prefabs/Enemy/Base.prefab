@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 6
   exp: 1
-  damage: 10
+  damage: 5
 --- !u!114 &6004814448266489056
 MonoBehaviour:
   m_ObjectHideFlags: 0

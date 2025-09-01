@@ -50,7 +50,6 @@ MonoBehaviour:
   easeHealthSlider: {fileID: 2022260967}
   maxHealth: 100
   health: 100
-  cam: {fileID: 0}
 --- !u!1 &589624297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 500
   exp: 100
-  damage: 10
+  damage: 5
 --- !u!114 &2931892527237557826
 MonoBehaviour:
   m_ObjectHideFlags: 0
